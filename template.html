@@ -3,11 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/normalize.css">
+    <title>OSC Indian Event 2026 ⎮ Dine in experience & Support StarShip </title>
+    <link rel="stylesheet" href="CSS/normalize.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <link href="fonts/OpenDyslexic-Regular.otf" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="OSC-event-images/logo_background_removed.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="OSC-event-images/logo_background_removed.png">
+    <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,hi,pa', 
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </head>
 <body>
-    
+  <header class="site-header">
+    <div class="navigation-container">
+
+      <!-- LOGO -->
+      <div class="site-logo">
+        <a href="home.html"><img src="OSC-event-images/logo_background_removed.png" alt="OSC Logo"></a>
+      </div>
+
+      <!-- NAVIGATION -->
+      <nav class="site-nav">
+
+        <!-- NAV LINKS -->
+        <ul class="nav-links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="reservations.html">Reservations</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="charity.html">Charity & Other</a></li>
+        </ul>
+
+        <!-- HAMBURGER BUTTON -->
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <i class="fa fa-bars"></i>
+        </button>
+
+        <!-- ICONS (Search + Settings) -->
+        <div class="header-icons">
+          <div class="search-container">
+            <button class="search-icon" aria-label="Search the site">
+              <i class="fa fa-search"></i>
+            </button>
+            <input type="text" class="search-input" placeholder="Search..." aria-label="Search the site">
+          </div>
+
+          <!-- SETTINGS -->
+           <div class="settings-menu">
+            <button class="settings-btn" aria-label="Open settings menu" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-cog"></i>
+            </button>
+
+            <div class="dropdown-content">
+              <!-- GOOGLE TRANSLATE -->
+              <section class="dropdown-item">
+                <label for="google_translate_element">Language:</label>
+                <div id="google_translate_element"></div>
+              </section>
+
+              <!-- DARK MODE -->
+              <section class="dropdown-item">
+                <label for="dark-mode-toggle">Dark Mode</label>
+                <input type="checkbox" id="dark-mode-toggle">
+              </section>
+
+              <!-- DYSLEXIC FONT -->
+              <section class="dropdown-item">
+                <label for="dyslexic-toggle">Dyslexic-Friendly Font</label>
+                <input type="checkbox" id="dyslexic-toggle">
+              </section>
+
+              <!-- HIGH CONTRAST MODE -->
+              <section class="dropdown-item">
+                <label for="contrast-toggle">High Contrast Mode</label>
+                <input type="checkbox" id="contrast-toggle">
+              </section>
+            </div>
+         </div>
+      </nav>
+    </div>
+  </header>
 </body>
 </html>
