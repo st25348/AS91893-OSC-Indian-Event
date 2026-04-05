@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
     <link href="fonts/OpenDyslexic-Regular.otf" rel="stylesheet">
     <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="16x16" href="OSC-event-images/logo_background_removed.png">
     <link rel="icon" type="image/png" sizes="32x32" href="OSC-event-images/logo_background_removed.png">
     <script type="text/javascript">
@@ -27,15 +27,17 @@ function googleTranslateElementInit() {
   <header class="site-header">
     <div class="navigation-container">
 
-      <!-- LOGO -->
+      <!-- ===== Logo ===== -->
       <div class="site-logo">
-        <a href="home.html"><img src="OSC-event-images/logo_background_removed.png" alt="OSC Logo"></a>
+        <a href="home.html">
+          <img src="OSC-event-images/logo_background_removed.png" alt="OSC Logo">
+        </a>
       </div>
 
-      <!-- NAVIGATION -->
-      <nav class="site-nav">
+      <!-- ===== Navigation & Icons Wrapper ===== -->
+      <div class="nav-icons-wrapper">
 
-        <!-- NAV LINKS -->
+        <!-- Navigation Links -->
         <ul class="nav-links">
           <li><a href="home.html">Home</a></li>
           <li><a href="menu.html">Menu</a></li>
@@ -44,54 +46,95 @@ function googleTranslateElementInit() {
           <li><a href="charity.html">Charity & Other</a></li>
         </ul>
 
-        <!-- HAMBURGER BUTTON -->
-        <button class="menu-toggle" aria-label="Toggle menu">
-          <i class="fa fa-bars"></i>
-        </button>
-
-        <!-- ICONS (Search + Settings) -->
+        <!-- Header Icons -->
         <div class="header-icons">
+
+          <!-- Search -->
           <div class="search-container">
             <button class="search-icon" aria-label="Search the site">
-              <i class="fa fa-search"></i>
+              <i class="bx bx-search"></i>
             </button>
             <input type="text" class="search-input" placeholder="Search..." aria-label="Search the site">
           </div>
 
-          <!-- SETTINGS -->
-           <div class="settings-menu">
+          <!-- Settings Menu -->
+          <div class="settings-menu">
             <button class="settings-btn" aria-label="Open settings menu" aria-haspopup="true" aria-expanded="false">
-              <i class="fa fa-cog"></i>
+              <i class="bx bx-cog"></i>
             </button>
 
             <div class="dropdown-content">
-              <!-- GOOGLE TRANSLATE -->
               <section class="dropdown-item">
                 <label for="google_translate_element">Language:</label>
                 <div id="google_translate_element"></div>
               </section>
-
-              <!-- DARK MODE -->
               <section class="dropdown-item">
                 <label for="dark-mode-toggle">Dark Mode</label>
                 <input type="checkbox" id="dark-mode-toggle">
               </section>
-
-              <!-- DYSLEXIC FONT -->
               <section class="dropdown-item">
                 <label for="dyslexic-toggle">Dyslexic-Friendly Font</label>
                 <input type="checkbox" id="dyslexic-toggle">
               </section>
-
-              <!-- HIGH CONTRAST MODE -->
               <section class="dropdown-item">
                 <label for="contrast-toggle">High Contrast Mode</label>
                 <input type="checkbox" id="contrast-toggle">
               </section>
             </div>
-         </div>
-      </nav>
+          </div>
+
+          <!-- Hamburger Button (mobile) -->
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="bi bi-list"></i> 
+          </button>
+        </div>
+      </div>
     </div>
   </header>
+    <main>
+    </main>
+  <footer class="site-footer">
+      <div class="footer-grid">
+
+        <!-- ===== Logo Column ===== -->
+        <div class="footer-column footer-logo-column">
+          <img src="OSC-event-images/logo_background_removed.png" alt="OSC Logo in footer" class="footer-logo">
+        </div>
+
+        <!-- ===== Navigation Column ===== -->
+        <nav class="footer-column footer-nav">
+          <ul>
+            <li><a href="#event">Event</a></li>
+            <li><a href="#details">Details</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reservation">Reservation</a></li>
+          </ul>
+        </nav>
+
+        <!-- ===== Contact Column ===== -->
+        <div class="footer-column footer-contact-column">
+          <div class="contact-details">
+            <p>Ormiston Senior College</p>
+            <p>275 Ormiston Road</p>
+            <p>Flat Bush, Auckland 2019</p>
+            <p>Phone: +64 9 972 0280</p>
+            <p>Email: <a href="mailto:info@ormiston.school.nz">info@ormiston.school.nz</a></p>
+          </div>
+          <div class="social-links">
+            <a href="https://instagram.com/yourhandle" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="https://facebook.com/yourpage" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="mailto:youremail@email.com"><i class="fa fa-envelope"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===== Copyright ===== -->
+      <div class="footer-copy">
+        <p>© 2026 OSC Cultural Event | Starship Foundation</p>
+      </div>
+    </footer>
+  
 </body>
 </html>
