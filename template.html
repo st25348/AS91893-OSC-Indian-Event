@@ -1,107 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+      <!-- ===== Meta ===== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSC Indian Event 2026 ⎮ Dine in experience & Support StarShip </title>
+      <!-- ===== Title ===== -->
+    <title>OSC Indian Event 2026 ⎮ Dine in Experience & Support Starship</title>
+      <!-- ===== Styles ===== -->
     <link rel="stylesheet" href="CSS/normalize.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-    <link href="fonts/OpenDyslexic-Regular.otf" rel="stylesheet">
     <link rel="stylesheet" href="CSS/style.css">
+      <!-- ===== Fonts ===== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+      <!-- ===== Icons ===== -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+      <!-- ===== Favicon ===== -->
     <link rel="icon" type="image/png" sizes="16x16" href="OSC-event-images/logo_background_removed.png">
     <link rel="icon" type="image/png" sizes="32x32" href="OSC-event-images/logo_background_removed.png">
-    <script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    includedLanguages: 'en,hi,pa', 
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-  }, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      <!-- ===== Google Translate ===== -->
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </head>
 
-</head>
-<body>
-  <header class="site-header">
-    <div class="navigation-container">
+  <body>
+    <!-- ======================= HEADER ========================= -->
+    <header class="site-header">
+      <div class="navigation-container">
+        <!-- Logo -->
+        <div class="site-logo">
+          <a href="home.html"><img src="OSC-event-images/logo_background_removed.png" alt="OSC Logo"></a>
+        </div>
+        <!-- Navigation + Icons -->
+        <div class="nav-icons-wrapper">
+          <!-- Navigation -->
+          <nav>
+            <ul class="nav-links">
+              <li><a href="home.html">Home</a></li>
+              <li><a href="menu.html">Menu</a></li>
+              <li><a href="reservations.html">Reservations</a></li>
+              <li><a href="experience.html">Experience</a></li>
+              <li><a href="charity.html">Charity & Other</a></li>
+            /ul>
+          </nav>
+            <!-- Icons Section -->
+          <div class="header-icons">  
+            <!-- Search -->
+            <div class="search-container">
+              <button class="search-icon" aria-label="Search the site">
+                <i class="bx bx-search"></i>
+              </button>
+                <input type="text" class="search-input" placeholder="Search..." aria-label="Search the site">
+            </div>
+              <!-- Settings -->
+            <div class="settings-menu">
+              <button class="settings-btn" aria-label="Open settings menu" aria-haspopup="true" aria-expanded="false">
+                <i class="bx bx-cog"></i>
+              </button>
+              <div class="dropdown-content">
+                <section class="dropdown-item">
+                  <label>Language:</label>
+                  <div id="google_translate_element"></div>
+                </section>
 
-      <!-- ===== Logo ===== -->
-      <div class="site-logo">
-        <a href="home.html">
-          <img src="OSC-event-images/logo_background_removed.png" alt="OSC Logo">
-        </a>
-      </div>
+                <section class="dropdown-item">
+                  <label for="dark-mode-toggle">Dark Mode</label>
+                  <input type="checkbox" id="dark-mode-toggle">
+                </section>
 
-      <!-- ===== Navigation & Icons Wrapper ===== -->
-      <div class="nav-icons-wrapper">
+                <section class="dropdown-item">
+                  <label for="dyslexic-toggle">Dyslexic-Friendly Font</label>
+                  <input type="checkbox" id="dyslexic-toggle">
+                </section>
 
-        <!-- Navigation Links -->
-        <ul class="nav-links">
-          <li><a href="home.html">Home</a></li>
-          <li><a href="menu.html">Menu</a></li>
-          <li><a href="reservations.html">Reservations</a></li>
-          <li><a href="experience.html">Experience</a></li>
-          <li><a href="charity.html">Charity & Other</a></li>
-        </ul>
-
-        <!-- Header Icons -->
-        <div class="header-icons">
-
-          <!-- Search -->
-          <div class="search-container">
-            <button class="search-icon" aria-label="Search the site">
-              <i class="bx bx-search"></i>
-            </button>
-            <input type="text" class="search-input" placeholder="Search..." aria-label="Search the site">
-          </div>
-
-          <!-- Settings Menu -->
-          <div class="settings-menu">
-            <button class="settings-btn" aria-label="Open settings menu" aria-haspopup="true" aria-expanded="false">
-              <i class="bx bx-cog"></i>
-            </button>
-
-            <div class="dropdown-content">
-              <section class="dropdown-item">
-                <label for="google_translate_element">Language:</label>
-                <div id="google_translate_element"></div>
-              </section>
-              <section class="dropdown-item">
-                <label for="dark-mode-toggle">Dark Mode</label>
-                <input type="checkbox" id="dark-mode-toggle">
-              </section>
-              <section class="dropdown-item">
-                <label for="dyslexic-toggle">Dyslexic-Friendly Font</label>
-                <input type="checkbox" id="dyslexic-toggle">
-              </section>
-              <section class="dropdown-item">
-                <label for="contrast-toggle">High Contrast Mode</label>
-                <input type="checkbox" id="contrast-toggle">
-              </section>
+                <section class="dropdown-item">
+                  <label for="contrast-toggle">High Contrast Mode</label>
+                  <input type="checkbox" id="contrast-toggle">
+                </section>
+              </div>
             </div>
           </div>
-
-          <!-- Hamburger Button (mobile) -->
-          <button class="menu-toggle" aria-label="Toggle menu">
-            <i class="bi bi-list"></i> 
-          </button>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
+    <!-- ======================== MAIN ============================ -->
     <main>
     </main>
-  <footer class="site-footer">
+
+    <!-- ======================= FOOTER =========================== -->
+    <footer class="site-footer">
       <div class="footer-grid">
-
-        <!-- ===== Logo Column ===== -->
+        <!-- Logo -->
         <div class="footer-column footer-logo-column">
-          <img src="OSC-event-images/logo_background_removed.png" alt="OSC Logo in footer" class="footer-logo">
+          <img src="OSC-event-images/logo_background_removed.png" alt="OSC Logo" class="footer-logo">
         </div>
-
-        <!-- ===== Navigation Column ===== -->
+        <!-- Footer Navigation -->
         <nav class="footer-column footer-nav">
           <ul>
             <li><a href="#event">Event</a></li>
@@ -111,8 +101,7 @@ function googleTranslateElementInit() {
             <li><a href="#reservation">Reservation</a></li>
           </ul>
         </nav>
-
-        <!-- ===== Contact Column ===== -->
+        <!-- Contact -->
         <div class="footer-column footer-contact-column">
           <div class="contact-details">
             <p>Ormiston Senior College</p>
@@ -122,19 +111,16 @@ function googleTranslateElementInit() {
             <p>Email: <a href="mailto:info@ormiston.school.nz">info@ormiston.school.nz</a></p>
           </div>
           <div class="social-links">
-            <a href="https://instagram.com/yourhandle" target="_blank"><i class="fa fa-instagram"></i></a>
-            <a href="https://facebook.com/yourpage" target="_blank"><i class="fa fa-facebook"></i></a>
-            <a href="mailto:youremail@email.com"><i class="fa fa-envelope"></i></a>
+            <a href="#"><i class="bx bxl-instagram"></i></a>
+            <a href="#"><i class="bx bxl-facebook"></i></a>
+            <a href="#"><i class="bx bx-envelope"></i></a>
           </div>
         </div>
-
-      </div>
-
-      <!-- ===== Copyright ===== -->
-      <div class="footer-copy">
-        <p>© 2026 OSC Cultural Event | Starship Foundation</p>
+        <!-- Copyright -->
+        <div class="footer-copy">
+          <p>© 2026 OSC Cultural Event | Starship Foundation</p>
+        </div>
       </div>
     </footer>
-  
-</body>
+  </body>
 </html>
