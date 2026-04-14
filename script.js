@@ -49,3 +49,36 @@ lightbox.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') lightbox.classList.remove('active');
 });
+
+// timeline slider
+
+const slider = document.querySelector('.timeline-slider');
+const cards = document.querySelectorAll('.timeline-card');
+const dotsContainer = document.querySelector('.timeline-dots');
+const prevBtn = document.querySelector('.timeline-prev');
+const nextBtn = document.querySelector('.timeline-next');
+
+let current = 0;
+
+// build dots
+cards.forEach((_, i) => {
+  const dot = document.createElement('div');
+  dot.classList.add('timeline-dot');
+  if (i === 0) dot.classList.add('active');
+  dot.addEventListener('click', () => goTo(i));
+  dotsContainer.appendChild(dot);
+});
+
+function goTo(index) {
+  const total = cards.length;
+  current = (index + total) % total;
+  const cardWidth = cards[0].offsetWidth + 20; // 20 = gap
+  slider.scrollLeft = cardWidth * current;
+
+  document.querySelectorAll('.timeline-dot').forEach((d, i) => {
+    d.classList.toggle('active', i === current);
+  });
+}
+
+prevBtn.addEventListener('click', () => goTo(current - 1));
+nextBtn.addEventListener('click', () => goTo(current + 1));

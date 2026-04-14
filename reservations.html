@@ -1,14 +1,378 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+      <!-- ===== Meta ===== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- ===== Title ===== -->
+    <title>OSC Indian Event 2026 ⎮ Dine in Experience & Support Starship</title>
+      <!-- ===== Styles ===== -->
     <link rel="stylesheet" href="CSS/normalize.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/style.css">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+      <!-- ===== Fonts ===== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+      <!-- ===== Icons ===== -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+      <!-- ===== Favicon ===== -->
+    <link rel="icon" type="image/png" sizes="16x16" href="OSC-event-images/logo_background_removed.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="OSC-event-images/logo_background_removed.png">
+      <!-- ===== Google Translate ===== -->
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </head>
+
+  <body>
+    <!-- ======================= HEADER ========================= -->
+    <header class="site-header">
+      <div class="navigation-container">
+        <!-- Logo -->
+        <div class="site-logo">
+          <a href="/index.html"><img src="/Assets/Images/logo_background_removed.png" alt="Ormiston Senior College logo, clickable link to homepage"></a>
+        </div>
+          <!-- Navigation -->
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="reservations.html">Reservations</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="charity.html">Charity & Other</a></li>
+          </ul>
+        </nav>
+          <!-- Icons Section -->
+        <div class="header-icons">  
+          <!-- Search -->            
+          <div class="search-container">
+            <button class="search-icon" aria-label="Search the site">
+              <i class="search"><img src="/Assets/icons/svg/basic/bxs-search-big.svg" alt="Magnifying glass search icon"></i>
+            </button>
+            <input type="text" class="search-input" placeholder="Search..." aria-label="Search the site">
+          </div>
+          <!-- Settings -->
+          <div class="settings-menu">
+            <button class="settings-btn" aria-label="Open settings menu" aria-haspopup="true" aria-expanded="false">
+              <i class="settings"><img src="/Assets/icons/svg/basic/bx-cog.svg" alt="Gear icon for settings menu"></i>
+            </button>
+            <div class="dropdown-content">
+              <div class="dropdown-item">
+                <label>Language:</label>
+                <div id="google_translate_element"></div>
+              </div>
+
+              <div class="dropdown-item">
+                <label for="dark-mode-toggle">Dark Mode</label>
+                <input type="checkbox" id="dark-mode-toggle">
+              </div>
+
+              <div class="dropdown-item">
+                <label for="dyslexic-toggle">Dyslexic-Friendly Font</label>
+                <input type="checkbox" id="dyslexic-toggle">
+              </div>
+
+              <div  class="dropdown-item">
+                <label for="contrast-toggle">High Contrast Mode</label>
+                <input type="checkbox" id="contrast-toggle">
+              </div>
+            </div>
+          </div>
+
+          <!-- Hamburger Menu -->
+          <div class="hamburger-menu">
+            <img src="/Assets/icons/svg/basic/bxs-menu-wider.svg" alt="Hamburger menu icon to show or hide navigation">
+          </div>
+
+        </div>
+      </div>
+    </header>
+    <!-- ======================== MAIN ============================ -->
+    <main>
+      <!-- * * * HERO SECTION * * * -->
+      <section class="reservations-hero">
+           <!-- LEFT — Banner Image -->
+          <div class="reservations-hero-img">
+              <img src="/Assets/Images/banner_reservations.jpg" alt="Elegantly set table for authentic Indian dine-in experience at the OSC cultural event">
+          </div>
+          <!-- RIGHT — Text Content -->
+          <div class="reservations-hero-text">
+             <h1>Reserve Your Table</h1>
+              <p>Join us for an unforgettable evening of authentic Indian cuisine, culture, and community — all in support of the Starship Foundation.</p>
+          </div>
+      </section>
+
+      <!-- * * * EVENT TIMELINE SLIDER * * * -->
+      <section class="timeline-section">
+        <h2 class="section-heading">Event Schedule</h2>
+        <div class="timeline-slider-wrapper">
+
+          <!-- LEFT ARROW -->
+          <button class="timeline-arrow timeline-prev" aria-label="Previous event">&#8592;</button>
+
+          <!-- SLIDER TRACK -->
+          <div class="timeline-slider">
+            <!-- OPENING CEREMONY -->
+            <div class="timeline-card">
+              <span class="timeline-time">10:00 AM</span>
+              <h3>Opening Ceremony</h3>
+              <p>Welcome guests and introduction to the event and Indian cultural theme.</p>
+            </div>
+
+             <!-- CULTURAL ACTIVITIES -->
+            <div class="timeline-card">
+              <span class="timeline-time">11:00 AM</span>
+              <h3>Cultural Activities</h3>
+              <p>Traditional Indian games and mini performances for all ages.</p>
+            </div>
+
+            <!-- FOOD & SNACKS -->
+            <div class="timeline-card">
+              <span class="timeline-time">12:30 PM</span>
+              <h3>Food & Snacks</h3>
+              <p>Small authentic Indian snacks available for early visitors to enjoy.</p>
+              <a href="menu.html" class="btn">See Menu</a>
+            </div>
+
+            <!-- CHARITY -->
+            <div class="timeline-card">
+              <span class="timeline-time">3:00 PM</span>
+              <h3>Charity Info & Community</h3>
+              <p>Highlights from the Starship Foundation and community involvement activities.</p>
+              <a href="charity.html" class="btn">Learn More</a>
+            </div>
+
+            <!-- DINE IN — FEATURED -->
+            <div class="timeline-card">
+              <span class="timeline-time">8:00 PM</span>
+              <h3>Indian Cuisine Dine-In</h3>
+              <p>Main dining experience featuring authentic Indian dishes prepared by students.</p>
+              <a href="#reservation-form" class="btn">Reserve a Table</a>
+            </div>
+
+            <!-- CLOSING -->
+            <div class="timeline-card">
+              <span class="timeline-time">10:00 PM</span>
+              <h3>Event Closing</h3>
+              <p>Thank all attendees and reveal the total charity impact raised for the Starship Foundation.</p>
+            </div>
+
+          </div>
+
+          <!-- RIGHT ARROW -->
+          <button class="timeline-arrow timeline-next" aria-label="Next event">&#8594;</button>
+        </div>
+        <!-- DOTS -->
+        <div class="timeline-dots"></div>
+      </section>
+
+      <!-- * * * RESERVATION FORM * * * -->
+      <section class="reservation-section" id="reservation-form">
+        
+        <!-- LEFT — Event Details -->
+        <div class="reservation-details">
+          <p class="reservation-tagline">An evening of culture, cuisine, and community</p>
+          <h2>Event Details</h2>
+
+          <ul class="details-list">
+            <li>
+              <span class="detail-label">Event</span>
+              <span class="detail-value">OSC Indian Cultural Day 2026</span>
+            </li>                
+            <li>
+             <span class="detail-label">Date</span>
+              <span class="detail-value">Friday, 10 April 2026</span>
+            </li>
+            <li>
+             <span class="detail-label">Time</span>
+             <span class="detail-value">6:00 PM – 10:00 PM</span>
+            </li>
+            <li>
+              <span class="detail-label">Location</span>
+              <span class="detail-value">275 Ormiston Road<br>Flat Bush, Auckland 2019</span>
+            </li>
+            <li>
+              <span class="detail-label">Seating</span>
+              <span class="detail-value">Limited — book in advance</span>
+            </li>
+            <li>
+              <span class="detail-label">Parking</span>
+              <span class="detail-value">On-site available</span>
+            </li>
+             <li>
+              <span class="detail-label">Access</span>
+              <span class="detail-value">Wheelchair accessible</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- RIGHT — Reservation Form -->
+        <div class="reservation-form-wrapper">
+          <h2>Make a Reservation</h2>
+          <p>Fill in your details below and we'll confirm your table for the evening.</p>
+
+          <form class="reservation-form">
+
+            <!-- Full Name -->
+            <div class="form-group">
+              <label for="full-name">Full Name</label>
+              <input type="text" id="full-name" placeholder="Your full name" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="your@email.com" required>
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="+64 your number" required>
+            </div>
+
+            <!-- Guests + Date -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="guests">Number of Guests</label>
+                <select id="guests" required>
+                  <option value="" disabled selected>Select guests</option>
+                  <option value="1">1 Guest</option>
+                  <option value="2">2 Guests</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4">4 Guests</option>
+                  <option value="5">5 Guests</option>
+                  <option value="6">6+ Guests</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" id="date" required>
+              </div>
+            </div>
+
+            <!-- Time -->
+            <div class="form-group">
+              <label for="time">Preferred Time</label>
+                <select id="time" required>
+                <option value="" disabled selected>Select a time</option>
+                <option value="18:00">6:00 PM</option>
+                <option value="19:00">7:00 PM</option>
+                <option value="20:00">8:00 PM</option>
+                <option value="21:00">9:00 PM</option>
+              </select>
+            </div>
+
+            <!-- Special Requests -->
+            <div class="form-group">
+              <label for="requests">Special Requests <span class="form-optional">(optional)</span></label>
+              <textarea id="requests" rows="4" placeholder="Any dietary requirements, accessibility needs, or special occasions..."></textarea>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn reservation-submit">Reserve Now</button>
+
+          </form>
+        </div>
+      </section>
+
+      <!-- * * * FIND US SECTION * * * -->
+      <section class="findus-section">
+        <div class="findus-header">
+          <p class="findus-tagline">Getting Here</p>
+          <h2>Find Us</h2>
+          <p class="location-statement">We're located at Ormiston Senior College in Flat Bush, Auckland. On-site parking
+             is available and the venue is fully wheelchair accessible.</p>
+        </div>
+        <div class="findus-map">
+          <iframe
+            title="Ormiston Senior College location on Google Maps"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3187.7670937386233!2d174.9154546766526!3d-36.96761897219994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d4ce7146b1303%3A0xb85945b1fffdfa5b!2sOrmiston%20Senior%20College!5e0!3m2!1sen!2snz!4v1776150771767!5m2!1sen!2snz" 
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </section>
+
+      <!-- * * * CONTACT SECTION * * * -->
+      <section class="contact-section">
+        <div class="contact-header">
+          <h2>We're Happy to Help</h2>
+          <p>Have a question about the event? Get in touch and we'll get back to you.</p>
+        </div>
+
+        <form class="contact-form">
+
+          <!-- Name + Email -->
+          <div class="form-row">
+            <div class="form-group">
+              <input type="text" id="contact-name" placeholder="First & last name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="contact-email" placeholder="Your email address" required>
+            </div>
+          </div>
+
+          <!-- Subject -->
+          <div class="form-group">
+            <input type="text" id="contact-subject" placeholder="Subject" required>
+          </div>
+
+          <!-- Message -->
+          <div class="form-group">
+            <textarea id="contact-message" rows="5" placeholder="Your message..." required></textarea>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn contact-submit">Send Message</button>
+
+        </form>
+      </section>
+    </main>
+    <!-- ======================= FOOTER =========================== -->
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <!-- Logo -->
+        <div class="footer-column footer-logo-column">
+          <img src="/Assets/Images/logo_background_removed.png" alt="Ormiston Senior College logo in footer" class="footer-logo">
+        </div>
+        <!-- Footer Navigation -->
+        <nav class="footer-column footer-nav">
+          <ul>
+            <li><a href="#event">Event</a></li>
+            <li><a href="#details">Details</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reservation">Reservation</a></li>
+          </ul>
+        </nav>
+        <!-- Contact -->
+        <div class="footer-column footer-contact-column">
+          <div class="contact-details">
+            <p>Ormiston Senior College</p>
+            <p>275 Ormiston Road</p>
+            <p>Flat Bush, Auckland 2019</p>
+            <p>Phone: <a href="tel:+6499720280">+64 9 972 0280</a></p>
+            <p>Email: <a href="mailto:info@ormiston.school.nz">info@ormiston.school.nz</a></p>
+          </div>
+          <div class="social-links">
+            <a href="#"><i class="bx bxl-instagram"></i></a>
+            <a href="#"><i class="bx bxl-facebook"></i></a>
+            <a href="#"><i class="bx bx-envelope"></i></a>
+          </div>
+        </div>
+        <!-- Copyright -->
+        <div class="footer-copy">
+          <p>© 2026 OSC Cultural Event | Starship Foundation</p>
+        </div>
+      </div>
+    </footer>
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lightbox-close">✕</button>
+      <img  id="lightbox-img" src="/Assets/Place-holder/placeholder.gif" alt="placeholder image for lightbox">
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
