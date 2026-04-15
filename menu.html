@@ -1,14 +1,444 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+      <!-- ===== Meta ===== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- ===== Title ===== -->
+    <title>OSC Indian Event 2026 ⎮ Dine in Experience & Support Starship</title>
+      <!-- ===== Styles ===== -->
     <link rel="stylesheet" href="CSS/normalize.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/style.css">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+      <!-- ===== Fonts ===== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+      <!-- ===== Icons ===== -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+      <!-- ===== Favicon ===== -->
+    <link rel="icon" type="image/png" sizes="16x16" href="OSC-event-images/logo_background_removed.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="OSC-event-images/logo_background_removed.png">
+      <!-- ===== Google Translate ===== -->
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </head>
+
+  <body>
+    <!-- ======================= HEADER ========================= -->
+    <header class="site-header">
+      <div class="navigation-container">
+        <!-- Logo -->
+        <div class="site-logo">
+          <a href="/index.html"><img src="/Assets/Images/logo_background_removed.png" alt="Ormiston Senior College logo, clickable link to homepage"></a>
+        </div>
+          <!-- Navigation -->
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="reservations.html">Reservations</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="charity.html">Charity & Other</a></li>
+          </ul>
+        </nav>
+          <!-- Icons Section -->
+        <div class="header-icons">  
+          <!-- Search -->            
+          <div class="search-container">
+            <button class="search-icon" aria-label="Search the site">
+              <i class="search"><img src="/Assets/icons/svg/basic/bxs-search-big.svg" alt="Magnifying glass search icon"></i>
+            </button>
+            <input type="text" class="search-input" placeholder="Search..." aria-label="Search the site">
+          </div>
+          <!-- Settings -->
+          <div class="settings-menu">
+            <button class="settings-btn" aria-label="Open settings menu" aria-haspopup="true" aria-expanded="false">
+              <i class="settings"><img src="/Assets/icons/svg/basic/bx-cog.svg" alt="Gear icon for settings menu"></i>
+            </button>
+            <div class="dropdown-content">
+              <div class="dropdown-item">
+                <label>Language:</label>
+                <div id="google_translate_element"></div>
+              </div>
+
+              <div class="dropdown-item">
+                <label for="dark-mode-toggle">Dark Mode</label>
+                <input type="checkbox" id="dark-mode-toggle">
+              </div>
+
+              <div class="dropdown-item">
+                <label for="dyslexic-toggle">Dyslexic-Friendly Font</label>
+                <input type="checkbox" id="dyslexic-toggle">
+              </div>
+
+              <div  class="dropdown-item">
+                <label for="contrast-toggle">High Contrast Mode</label>
+                <input type="checkbox" id="contrast-toggle">
+              </div>
+            </div>
+          </div>
+
+          <!-- Hamburger Menu -->
+          <div class="hamburger-menu">
+            <img src="/Assets/icons/svg/basic/bxs-menu-wider.svg" alt="Hamburger menu icon to show or hide navigation">
+          </div>
+
+        </div>
+      </div>
+    </header>
+    <!-- ======================== MAIN ============================ -->
+    <main>
+      <!-- * * * HERO SECTION * * * -->
+      <section class="hero">
+        <!-- BACKGROUND IMAGE -->
+        <img src="/Assets/Images/banner_menu.jpg" alt="Authentic Indian cuisine spread for the OSC cultural dining experience" class="hero-img">
+          <!-- DARK OVERLAY -->
+          <div class="hero-overlay"></div>
+          <!-- CONTENT -->
+          <div class="hero-content">
+            <h1>Authentic Indian Cuisine</h1>
+            <p><i>Explore the dishes prepared for our charity dine-in experience.</i></p>
+            <a href="/experience.html" class="hero-btn">Visit Gallery</a>
+          </div>
+      </section>
+
+      <!-- * * * CHEF'S RECOMMENDATION * * * -->
+      <section class="chef-section">
+        <div class="chef-header">
+          <p class="chef-tagline">Chef's Pick</p>
+          <h2>Chef's Recommendation</h2>
+          <p>Our most loved dishes — handpicked for an unforgettable evening.</p>
+        </div>
+
+        <div class="chef-strips">
+          <div class="strip-wrap">
+
+            <!-- ROW 1 — scrolls left -->
+            <div class="chef-strip chef-strip--rtl">
+              <div class="dish-card" data-title="Butter Chicken" data-desc="Tender chicken in a rich, creamy tomato gravy.">                  <img src="/Assets/Images/butter_chicken.jpg" alt="Butter Chicken" class="lightbox-trigger">
+                <div class="dish-overlay"><h3>Butter Chicken</h3><p>Tender chicken in a rich, creamy tomato gravy.</p></div>
+              </div>
+              <div class="dish-card" data-title="Chicken Biryani" data-desc="Fragrant basmati rice with marinated chicken.">
+                <img src="/Assets/Images/biriyani.jpg" alt="Chicken Biryani" class="lightbox-trigger">
+                <div class="dish-overlay"><h3>Chicken Biryani</h3><p>Fragrant basmati rice with marinated chicken.</p></div>
+              </div>
+              <div class="dish-card" data-title="Dal Makhani" data-desc="Slow-cooked black lentils with butter and cream.">
+                <img src="/Assets/Images/dal_makhani.jpg" alt="Dal Makhani" class="lightbox-trigger">
+                <div class="dish-overlay"><h3>Dal Makhani</h3><p>Slow-cooked black lentils with butter and cream.</p></div>
+              </div>
+              <div class="dish-card" data-title="Garlic Naan" data-desc="Soft, fluffy flatbread brushed with butter and roasted garlic.">
+                <img src="/Assets/Images/garlic_naan.jpg" alt="Garlic Naan" class="lightbox-trigger">
+                <div class="dish-overlay"><h3>Garlic Naan</h3><p>Soft, fluffy flatbread brushed with butter and roasted garlic.</p></div>
+              </div>
+
+                <!-- Duplicate for seamless looping -->
+              <div class="dish-card" data-title="Butter Chicken" data-desc="Tender chicken in a rich, creamy tomato gravy.">                  <img src="/Assets/Images/butter_chicken.jpg" alt="Butter Chicken" class="lightbox-trigger">
+                <div class="dish-overlay"><h3>Butter Chicken</h3><p>Tender chicken in a rich, creamy tomato gravy.</p></div>
+              </div>
+              <div class="dish-card" data-title="Chicken Biryani" data-desc="Fragrant basmati rice with marinated chicken.">
+                <img src="/Assets/Images/biriyani.jpg" alt="Chicken Biryani" class="lightbox-trigger">
+                <div class="dish-overlay"><h3>Chicken Biryani</h3><p>Fragrant basmati rice with marinated chicken.</p></div>
+              </div>
+              <div class="dish-card" data-title="Dal Makhani" data-desc="Slow-cooked black lentils with butter and cream.">
+                <img src="/Assets/Images/dal_makhani.jpg" alt="Dal Makhani" class="lightbox-trigger">
+                <div class="dish-overlay"><h3>Dal Makhani</h3><p>Slow-cooked black lentils with butter and cream.</p></div>
+              </div>
+              <div class="dish-card" data-title="Garlic Naan" data-desc="Soft, fluffy flatbread brushed with butter and roasted garlic.">
+                <img src="/Assets/Images/garlic_naan.jpg" alt="Garlic Naan" class="lightbox-trigger">
+                <div class="dish-overlay"><h3>Garlic Naan</h3><p>Soft, fluffy flatbread brushed with butter and roasted garlic.</p></div>
+              </div>
+            </div>
+
+            <!-- ROW 2 — scrolls right -->
+            <div class="chef-strip chef-strip--ltr">
+              <div class="dish-card" data-title="Mango Lassi" data-desc="A chilled, creamy yogurt drink blended with sweet ripe mangoes.">
+                <img src="/Assets/Images/mango_lassi.jpg" alt="Mango Lassi">
+                <div class="dish-overlay"><h3>Mango Lassi</h3><p>A chilled, creamy yogurt drink blended with sweet ripe mangoes.</p></div>
+              </div>
+              <div class="dish-card" data-title="Masala Chai" data-desc="Aromatic Indian spiced tea brewed with ginger, cardamom, and milk.">
+                <img src="/Assets/Images/masala_chai.jpg" alt="Masala Chai">
+                <div class="dish-overlay"><h3>Masala Chai</h3><p>Aromatic Indian spiced tea brewed with ginger, cardamom, and milk.</p></div>
+              </div>
+              <div class="dish-card" data-title="Samosas" data-desc="Golden crispy pastry pockets stuffed with spiced potatoes and peas.">
+                <img src="/Assets/Images/samosas.jpg" alt="Samosas">
+                <div class="dish-overlay"><h3>Samosas</h3><p>Golden crispy pastry pockets stuffed with spiced potatoes and peas.</p></div>
+              </div>
+              <div class="dish-card" data-title="Tandoori Chicken" data-desc="Smoky chicken marinated in yogurt and spices, roasted in a clay tandoor.">
+                <img src="/Assets/Images/tandoori_chicken2.jpg" alt="Tandoori Chicken">
+                <div class="dish-overlay"><h3>Tandoori Chicken</h3><p>Smoky chicken marinated in yogurt and spices, roasted in a clay tandoor.</p></div>
+              </div>
+
+              <!-- Duplicate for seamless looping -->
+              <div class="dish-card" data-title="Mango Lassi" data-desc="A chilled, creamy yogurt drink blended with sweet ripe mangoes.">
+                <img src="/Assets/Images/mango_lassi.jpg" alt="Mango Lassi">
+                <div class="dish-overlay"><h3>Mango Lassi</h3><p>A chilled, creamy yogurt drink blended with sweet ripe mangoes.</p></div>
+              </div>
+              <div class="dish-card" data-title="Masala Chai" data-desc="Aromatic Indian spiced tea brewed with ginger, cardamom, and milk.">
+                <img src="/Assets/Images/masala_chai.jpg" alt="Masala Chai">
+                <div class="dish-overlay"><h3>Masala Chai</h3><p>Aromatic Indian spiced tea brewed with ginger, cardamom, and milk.</p></div>
+              </div>
+              <div class="dish-card" data-title="Samosas" data-desc="Golden crispy pastry pockets stuffed with spiced potatoes and peas.">
+                <img src="/Assets/Images/samosas.jpg" alt="Samosas">
+                <div class="dish-overlay"><h3>Samosas</h3><p>Golden crispy pastry pockets stuffed with spiced potatoes and peas.</p></div>
+              </div>
+              <div class="dish-card" data-title="Tandoori Chicken" data-desc="Smoky chicken marinated in yogurt and spices, roasted in a clay tandoor.">
+                <img src="/Assets/Images/tandoori_chicken2.jpg" alt="Tandoori Chicken">
+                <div class="dish-overlay"><h3>Tandoori Chicken</h3><p>Smoky chicken marinated in yogurt and spices, roasted in a clay tandoor.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- * * * MENU SECTION * * * -->
+      <section class="menu-section">
+
+        <div class="menu-header">
+          <p class="menu-tagline">What We're Serving</p>
+          <h2>Our Menu</h2>
+          <p>Every dish is freshly prepared for the evening — explore what's on offer.</p>
+        </div>
+
+        <div class="menu-grid">
+
+          <!-- ── MAINS LEFT ── -->
+          <div class="menu-card">
+            <h3 class="menu-card-title">Mains</h3>
+
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <div class="menu-item-name">Butter Chicken <span class="menu-badge menu-badge--spicy">Spicy</span></div>
+                <p class="menu-item-desc">Tender chicken cooked in a rich, creamy tomato gravy.</p>
+              </div>
+              <span class="menu-item-price">$14</span>
+            </div>
+            <div class="menu-divider"></div>
+
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <div class="menu-item-name">Chicken Biryani <span class="menu-badge menu-badge--medium">Medium</span></div>
+                <p class="menu-item-desc">Fragrant basmati rice cooked with marinated chicken and aromatic spices.</p>
+              </div>
+              <span class="menu-item-price">$13</span>
+            </div>
+            <div class="menu-divider"></div>
+
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <div class="menu-item-name">Paneer Butter Masala <span class="menu-badge menu-badge--mild">Mild</span></div>
+                <p class="menu-item-desc">Paneer cubes in a smooth buttery tomato-based sauce.</p>
+              </div>
+              <span class="menu-item-price">$12</span>
+            </div>
+            <div class="menu-divider"></div>
+
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <div class="menu-item-name">Palak Paneer <span class="menu-badge menu-badge--mild">Mild</span></div>
+                <p class="menu-item-desc">Paneer cubes cooked in creamy spinach gravy.</p>
+              </div>
+              <span class="menu-item-price">$12</span>
+            </div>
+            <div class="menu-divider"></div>
+
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <div class="menu-item-name">Chole Bhature <span class="menu-badge menu-badge--medium">Medium</span></div>
+                <p class="menu-item-desc">Spiced chickpea curry served with fluffy fried bread.</p>
+              </div>
+              <span class="menu-item-price">$11</span>
+              </div>
+          </div>
+
+          <!-- ── MAINS RIGHT ── -->
+          <div class="menu-card">
+            <h3 class="menu-card-title">Mains</h3>
+
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <div class="menu-item-name">Vegetable Biryani <span class="menu-badge menu-badge--medium">Medium</span></div>
+                <p class="menu-item-desc">Aromatic basmati rice with seasonal vegetables.</p>
+              </div>
+              <span class="menu-item-price">$11</span>
+            </div>
+            <div class="menu-divider"></div>
+
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <div class="menu-item-name">Dal Makhani <span class="menu-badge menu-badge--mild">Mild</span></div>
+                <p class="menu-item-desc">Slow-cooked black lentils simmered with butter and cream.</p>
+              </div>
+              <span class="menu-item-price">$10</span>
+            </div>
+            <div class="menu-divider"></div>
+
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <div class="menu-item-name">Tandoori Chicken <span class="menu-badge menu-badge--spicy">Spicy</span></div>
+                <p class="menu-item-desc">Marinated chicken roasted in a traditional tandoor.</p>
+              </div>
+              <span class="menu-item-price">$14</span>
+            </div>
+            <div class="menu-divider"></div>
+
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <div class="menu-item-name">Paneer Tikka <span class="menu-badge menu-badge--medium">Medium</span></div>
+                <p class="menu-item-desc">Grilled paneer cubes marinated in yogurt and Indian spices.</p>
+              </div>
+              <span class="menu-item-price">$10</span>
+            </div>
+            <div class="menu-divider"></div>
+
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <div class="menu-item-name">Lamb Rogan Josh <span class="menu-badge menu-badge--medium">Medium</span> <span class="menu-badge menu-badge--new">New</span></div>
+                <p class="menu-item-desc">Slow-braised tender lamb in a bold Kashmiri spice gravy.</p>
+              </div>
+              <span class="menu-item-price">$15</span>
+            </div>
+          </div>
+
+          <!-- ── SIDES ── -->
+          <div class="menu-card">
+            <h3 class="menu-card-title">Sides</h3>
+
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <div class="menu-item-name">Garlic Naan</div>
+                <p class="menu-item-desc">Soft Indian flatbread baked with garlic and butter.</p>
+              </div>
+              <span class="menu-item-price">$4</span>
+            </div>
+            <div class="menu-divider"></div>
+
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <div class="menu-item-name">Butter Naan</div>
+                <p class="menu-item-desc">Traditional Indian bread brushed with butter.</p>
+              </div>
+              <span class="menu-item-price">$3.50</span>
+            </div>
+            <div class="menu-divider"></div>
+
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <div class="menu-item-name">Vegetable Samosa <span class="menu-badge menu-badge--medium">Medium</span></div>
+                <p class="menu-item-desc">Crispy pastry filled with spiced potatoes and peas.</p>
+              </div>
+              <span class="menu-item-price">$4</span>
+            </div>
+            <div class="menu-divider"></div>
+
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <div class="menu-item-name">Cucumber Raita</div>
+                <p class="menu-item-desc">Cooling yogurt dip with fresh cucumber and cumin.</p>
+              </div>
+              <span class="menu-item-price">$3</span>
+            </div>
+            <div class="menu-divider"></div>
+
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <div class="menu-item-name">Papadum <span class="menu-badge menu-badge--new">New</span></div>
+                <p class="menu-item-desc">Thin crispy lentil wafers served with mint chutney.</p>
+              </div>
+              <span class="menu-item-price">$2.50</span>
+            </div>
+          </div>
+
+          <!-- ── BEVERAGES ── -->
+          <div class="menu-card">
+            <h3 class="menu-card-title">Beverages</h3>
+
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <div class="menu-item-name">Mango Lassi</div>
+                <p class="menu-item-desc">Sweet mango yogurt drink.</p>
+              </div>
+              <span class="menu-item-price">$5</span>
+            </div>
+            <div class="menu-divider"></div>
+
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <div class="menu-item-name">Masala Chai</div>
+                <p class="menu-item-desc">Traditional Indian spiced tea.</p>
+              </div>
+              <span class="menu-item-price">$3</span>
+            </div>
+            <div class="menu-divider"></div>
+
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <div class="menu-item-name">Sweet Lassi</div>
+                <p class="menu-item-desc">Classic yogurt drink served chilled.</p>
+              </div>
+              <span class="menu-item-price">$4</span>
+            </div>
+            <div class="menu-divider"></div>
+
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <div class="menu-item-name">Fresh Lime Soda</div>
+                <p class="menu-item-desc">Light sparkling lemon drink.</p>
+              </div>
+              <span class="menu-item-price">$3.50</span>
+            </div>
+            <div class="menu-divider"></div>
+
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <div class="menu-item-name">Rose Sharbat <span class="menu-badge menu-badge--new">New</span></div>
+                <p class="menu-item-desc">Chilled rose-flavoured syrup drink with basil seeds.</p>
+              </div>
+              <span class="menu-item-price">$3.50</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+    <!-- ======================= FOOTER =========================== -->
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <!-- Logo -->
+        <div class="footer-column footer-logo-column">
+          <img src="/Assets/Images/logo_background_removed.png" alt="Ormiston Senior College logo in footer" class="footer-logo">
+        </div>
+        <!-- Footer Navigation -->
+        <nav class="footer-column footer-nav">
+          <ul>
+            <li><a href="#event">Event</a></li>
+            <li><a href="#details">Details</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reservation">Reservation</a></li>
+          </ul>
+        </nav>
+        <!-- Contact -->
+        <div class="footer-column footer-contact-column">
+          <div class="contact-details">
+            <p>Ormiston Senior College</p>
+            <p>275 Ormiston Road</p>
+            <p>Flat Bush, Auckland 2019</p>
+            <p>Phone: <a href="tel:+6499720280">+64 9 972 0280</a></p>
+            <p>Email: <a href="mailto:info@ormiston.school.nz">info@ormiston.school.nz</a></p>
+          </div>
+          <div class="social-links">
+            <a href="#"><i class="bx bxl-instagram"></i></a>
+            <a href="#"><i class="bx bxl-facebook"></i></a>
+            <a href="#"><i class="bx bx-envelope"></i></a>
+          </div>
+        </div>
+        <!-- Copyright -->
+        <div class="footer-copy">
+          <p>© 2026 OSC Cultural Event | Starship Foundation</p>
+        </div>
+      </div>
+    </footer>
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lightbox-close">✕</button>
+      <img  id="lightbox-img" src="/Assets/Place-holder/placeholder.gif" alt="placeholder image for lightbox">
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
