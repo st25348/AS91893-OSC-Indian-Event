@@ -45,6 +45,19 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') lightbox.classList.remove('active');
 });
 
+// back to top
+const backToTop = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    backToTop.classList.add('visible');
+  } else {
+    backToTop.classList.remove('visible');
+  }
+});
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
 // timeline slider
 const slider = document.querySelector('.timeline-slider');
 const prevBtn = document.querySelector('.timeline-prev');
@@ -76,4 +89,39 @@ if (slider && prevBtn && nextBtn) {
   prevBtn.addEventListener('click', () => goTo(current - 1));
   nextBtn.addEventListener('click', () => goTo(current + 1));
 }
+
+// experience carousel 
+
+const carouselSection = document.querySelector('.carousel-section');
+const carouselPrev    = document.querySelector('.carousel-prev');
+const carouselNext    = document.querySelector('.carousel-next');
+const carouselDots    = document.querySelector('.carousel-dots');
+const carouselCards   = document.querySelectorAll('.carousel-hero-card');
+
+if (carouselSection && carouselPrev && carouselNext) {
+  let current = 0;
+
+  //build dot automatically 
+
+  carouselCards.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.classList.add('carousel-dot');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goTo(i));
+    carouselDots.appendChild(dot);
+  });
+
+function goTo(index) {
+  const total = carouselCards.length;
+  current = (index + total) % total;
+  carouselCards[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+  document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+    d.classList.toggle('active', i === current);
+  });
+}
+
+  carouselPrev.addEventListener('click', () => goTo(current - 1));
+  carouselNext.addEventListener('click', () => goTo(current + 1));
+}
+
 

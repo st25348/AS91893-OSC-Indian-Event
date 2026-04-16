@@ -1,14 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+      <!-- ===== Meta ===== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- ===== Title ===== -->
+    <title>OSC Indian Event 2026 ⎮ Dine in Experience & Support Starship</title>
+      <!-- ===== Styles ===== -->
     <link rel="stylesheet" href="CSS/normalize.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/style.css">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+      <!-- ===== Fonts ===== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+      <!-- ===== Icons ===== -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+      <!-- ===== Favicon ===== -->
+    <link rel="icon" type="image/png" sizes="16x16" href="OSC-event-images/logo_background_removed.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="OSC-event-images/logo_background_removed.png">
+      <!-- ===== Google Translate ===== -->
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </head>
+
+  <body>
+    <!-- ======================= HEADER ========================= -->
+    <header class="site-header">
+      <div class="navigation-container">
+        <!-- Logo -->
+        <div class="site-logo">
+          <a href="/index.html"><img src="/Assets/Images/logo_background_removed.png" alt="Ormiston Senior College logo, clickable link to homepage"></a>
+        </div>
+          <!-- Navigation -->
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="reservations.html">Reservations</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="charity.html">Charity & Other</a></li>
+          </ul>
+        </nav>
+          <!-- Icons Section -->
+        <div class="header-icons">  
+          <!-- Search -->            
+          <div class="search-container">
+            <button class="search-icon" aria-label="Search the site">
+              <i class="search"><img src="/Assets/icons/svg/basic/bxs-search-big.svg" alt="Magnifying glass search icon"></i>
+            </button>
+            <input type="text" class="search-input" placeholder="Search..." aria-label="Search the site">
+          </div>
+          <!-- Settings -->
+          <div class="settings-menu">
+            <button class="settings-btn" aria-label="Open settings menu" aria-haspopup="true" aria-expanded="false">
+              <i class="settings"><img src="/Assets/icons/svg/basic/bx-cog.svg" alt="Gear icon for settings menu"></i>
+            </button>
+            <div class="dropdown-content">
+              <div class="dropdown-item">
+                <label>Language:</label>
+                <div id="google_translate_element"></div>
+              </div>
+
+              <div class="dropdown-item">
+                <label for="dark-mode-toggle">Dark Mode</label>
+                <input type="checkbox" id="dark-mode-toggle">
+              </div>
+
+              <div class="dropdown-item">
+                <label for="dyslexic-toggle">Dyslexic-Friendly Font</label>
+                <input type="checkbox" id="dyslexic-toggle">
+              </div>
+
+              <div  class="dropdown-item">
+                <label for="contrast-toggle">High Contrast Mode</label>
+                <input type="checkbox" id="contrast-toggle">
+              </div>
+            </div>
+          </div>
+
+          <!-- Hamburger Menu -->
+          <div class="hamburger-menu">
+            <img src="/Assets/icons/svg/basic/bxs-menu-wider.svg" alt="Hamburger menu icon to show or hide navigation">
+          </div>
+
+        </div>
+      </div>
+    </header>
+    <!-- ======================== MAIN ============================ -->
+    <main>
+      <!-- * * * HERO SECTION * * * -->
+      <section class="experience-hero">
+        <div class="carousel-wrapper">
+
+        <!-- LEFT ARROW -->
+        <button class="carousel-arrow carousel-prev" aria-label="Previous image">&#8592;</button>
+        <div class="carousel-section">
+          
+          <div class="carousel-hero-card">
+            <img src="/Assets/Images/banner_experience.jpg" alt="Guests enjoying the dine-in experience at the OSC Indian Cultural Event" class="lightbox-trigger">
+            <div class="hero-content">
+              <h1>Experience the Event</h1>
+              <p><i>Relive the unforgettable moments from our OSC Indian Cultural Event through our exclusive gallery.</i></p>
+            </div>
+          </div>
+
+          <div class="carousel-hero-card">
+            <img src="/Assets/Images/family_dining1.jpg" alt="Guests enjoying the dine-in experience at the OSC Indian Cultural Event" class="lightbox-trigger">
+            <div class="hero-content">
+              <h1>A Night of Good Food</h1>
+              <p><i>Families and friends gathered to share authentic Indian cuisine, freshly prepared by our talented student chefs.</i></p>
+            </div>
+          </div>
+
+          <div class="carousel-hero-card">
+            <img src="/Assets/Images/students5.jpg" alt="Guests enjoying the dine-in experience at the OSC Indian Cultural Event" class="lightbox-trigger">
+            <div class="hero-content">
+              <h1>Made by Our Students</h1>
+              <p><i>From the kitchen to the stage, every part of this evening was brought to life by the students of Ormiston Senior College.</i></p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT ARROW -->
+        <button class="carousel-arrow carousel-next" aria-label="Next image">&#8594;</button>
+
+        </div>
+        <div class="carousel-dots"></div>
+      </section>
+
+      <!-- * * * STRIP SECTION * * * -->
+      <section class="kitchen-row">
+
+        <div class="kitchen-row-content">
+          <h1>In the Kitchen</h1>
+          <p>Every dish is thoughtfully prepared with care and attention,
+          ensuring a tidy and hygienic kitchen while students learn
+          authentic Indian cooking techniques. </p>
+        </div>
+
+        <div class="kitchen-wrap">
+          <div class="kitchen-grid">
+
+            <div class="kitchen-card">
+              <img src="/Assets/Images/students9.jpg" alt="Fresh vegetables and ingredients" class="lightbox-trigger">
+              <div class="kitchen-overlay">
+                <h3>Fresh Ingredients</h3>
+                <p>Every dish starts with fresh, high-quality vegetables and ingredients, ensuring authentic flavors and vibrant colors on your plate.</p>
+              </div>
+            </div>
+
+            <div class="kitchen-card">
+              <img src="/Assets/Images/students3.jpg" alt="Student preparing food with care" class="lightbox-trigger">
+              <div class="kitchen-overlay">
+                <h3>Made with Love</h3>
+                <p>Prepared with care and passion, our students put love into every dish, creating meals that celebrate Indian culinary traditions.</p>
+              </div>
+            </div>
+
+            <div class="kitchen-card">
+              <img src="/Assets/Images/students4.jpeg" alt="Health-conscious cooking at OSC" class="lightbox-trigger">
+              <div class="kitchen-overlay">
+                <h3>Health-Conscious Cooking</h3>
+                <p>Attention to hygiene and health-conscious cooking makes each dish both delicious and nourishing for everyone to enjoy.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- * * * EXPERIENCE ROWS SECTION * * * -->
+      <section class="experience-rows">
+
+        <!-- Experience — image RIGHT -->
+        <div class="experience-row">
+          <div class="experience-text">
+            <h3>Experience</h3>
+            <p>Guests are welcomed into a vibrant atmosphere where food, culture, and community come together. The event allows visitors to enjoy authentic Indian dishes while experiencing the warmth and hospitality that are central to Indian traditions.</p>
+          </div>
+          <div class="experience-img">
+            <img src="/Assets/Images/family_dining1.jpg" alt="Family enjoying the dine-in experience" class="lightbox-trigger">
+          </div>
+        </div>
+
+        <!-- Student Participation — image LEFT -->
+        <div class="experience-row experience-row--reverse">
+          <div class="experience-text">
+            <h3>Student Participation</h3>
+            <p>Students play an important role in organising and running the event. From preparing dishes to guiding activities and helping guests, their involvement creates a collaborative environment that builds teamwork and leadership skills.</p>
+          </div>
+          <div class="experience-img">
+            <img src="/Assets/Images/students6.jpeg" alt="OSC student serving food at the event" class="lightbox-trigger">
+          </div>
+        </div>
+
+      </section>
+
+      <!-- * * * CHARITY SECTION * * * -->
+      <section class="charity-section">
+
+        <div class="charity-img">
+          <img src="/Assets/Images/starship2.jpg" alt="Starship Foundation — supporting children and families" class="lightbox-trigger">
+        </div>
+
+        <div class="charity-text">
+          <h3>Support a Cause While Enjoying Indian Culture</h3>
+          <p>The event brings the school community together while supporting a meaningful cause. Funds raised during the event contribute to the Starship Foundation, helping improve healthcare and support for children and families.</p>
+          <a href="charity.html" class="btn charity-btn">Support Charity</a>
+        </div>
+
+      </section>
+      
+    </main>
+    <!-- ======================= FOOTER =========================== -->
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <!-- Logo -->
+        <div class="footer-column footer-logo-column">
+          <img src="/Assets/Images/logo_background_removed.png" alt="Ormiston Senior College logo in footer" class="footer-logo">
+        </div>
+        <!-- Footer Navigation -->
+        <nav class="footer-column footer-nav">
+          <ul>
+            <li><a href="#event">Event</a></li>
+            <li><a href="#details">Details</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reservation">Reservation</a></li>
+          </ul>
+        </nav>
+        <!-- Contact -->
+        <div class="footer-column footer-contact-column">
+          <div class="contact-details">
+            <p>Ormiston Senior College</p>
+            <p>275 Ormiston Road</p>
+            <p>Flat Bush, Auckland 2019</p>
+            <p>Phone: <a href="tel:+6499720280">+64 9 972 0280</a></p>
+            <p>Email: <a href="mailto:info@ormiston.school.nz">info@ormiston.school.nz</a></p>
+          </div>
+          <div class="social-links">
+            <a href="#"><i class="bx bxl-instagram"></i></a>
+            <a href="#"><i class="bx bxl-facebook"></i></a>
+            <a href="#"><i class="bx bx-envelope"></i></a>
+          </div>
+        </div>
+        <!-- Copyright -->
+        <div class="footer-copy">
+          <p>© 2026 OSC Cultural Event | Starship Foundation</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lightbox-close">✕</button>
+      <img  id="lightbox-img" src="/Assets/Place-holder/placeholder.gif" alt="placeholder image for lightbox">
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
