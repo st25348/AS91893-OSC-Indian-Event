@@ -1,7 +1,7 @@
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
     pageLanguage: 'en',
-    includedLanguages: 'en,hi,pa', 
+    includedLanguages: 'en,hi,fr,mi,tl,ko,zh-CN', 
     layout: google.translate.TranslateElement.InlineLayout.SIMPLE
   }, 'google_translate_element');
 }
@@ -16,12 +16,139 @@ window.addEventListener("scroll", () => {
   }
 });
 
+// settings
+const settingsMenu = document.querySelector(".settings-menu");
+const settingsBtn  = document.querySelector(".settings-btn");
+ 
+if (settingsBtn && settingsMenu) {
+  settingsBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = settingsMenu.classList.toggle("show");
+    settingsBtn.setAttribute("aria-expanded", isOpen);
+  });
+ 
+  document.addEventListener("click", (e) => {
+    if (!settingsMenu.contains(e.target)) {
+      settingsMenu.classList.remove("show");
+      settingsBtn.setAttribute("aria-expanded", false);
+    }
+  });
+}
+
+// dyslexic font
+const dyslexicToggle = document.getElementById("dyslexic-toggle");
+
+if (dyslexicToggle) {
+  dyslexicToggle.addEventListener("change", () => {
+    document.body.classList.toggle("dyslexic-mode", dyslexicToggle.checked);
+  });
+}
+
 // hamburger
-const menuToggle = document.querySelector('.hamburger-menu');
-const navLinks = document.querySelector('.nav-links');
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-});
+const hamburger = document.getElementById("hamburger") 
+               || document.querySelector(".hamburger-menu");
+const navLinks  = document.querySelector(".nav-links");
+ 
+if (hamburger && navLinks) {
+  hamburger.addEventListener("click", () => {
+    const isOpen = hamburger.classList.toggle("active");
+    navLinks.classList.toggle("active", isOpen);
+    hamburger.setAttribute("aria-expanded", isOpen);
+  });
+ 
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      navLinks.classList.remove("active");
+      hamburger.setAttribute("aria-expanded", false);
+    });
+  });
+}
+
+// search
+const searchContainer = document.querySelector('.search-container');
+const searchInput = document.querySelector('.search-input');
+
+if (searchContainer && searchInput) {
+
+  function clearHighlights() {
+    document.querySelectorAll('mark.search-highlight').forEach(mark => {
+      const parent = mark.parentNode;
+      parent.replaceChild(document.createTextNode(mark.textContent), mark);
+      parent.normalize();
+    });
+  }
+
+  function highlightMatches(query) {
+    clearHighlights();
+    if (!query) return;
+
+    const walker = document.createTreeWalker(
+      document.body,
+      NodeFilter.SHOW_TEXT,
+      {
+        acceptNode(node) {
+          const tag = node.parentElement.tagName;
+          if (['SCRIPT', 'STYLE', 'NOSCRIPT', 'MARK'].includes(tag)) {
+            return NodeFilter.FILTER_REJECT;
+          }
+          return node.textContent.toLowerCase().includes(query.toLowerCase())
+            ? NodeFilter.FILTER_ACCEPT
+            : NodeFilter.FILTER_SKIP;
+        }
+      }
+    );
+
+    const matches = [];
+    let node;
+    while ((node = walker.nextNode())) matches.push(node);
+
+    matches.forEach(textNode => {
+      const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+      const fragment = document.createDocumentFragment();
+      const parts = textNode.textContent.split(regex);
+
+      parts.forEach(part => {
+        if (regex.test(part)) {
+          const mark = document.createElement('mark');
+          mark.className = 'search-highlight';
+          mark.textContent = part;
+          fragment.appendChild(mark);
+        } else {
+          fragment.appendChild(document.createTextNode(part));
+        }
+      });
+
+      textNode.parentNode.replaceChild(fragment, textNode);
+    });
+
+    // scroll to first match
+    const first = document.querySelector('mark.search-highlight');
+    if (first) {
+      first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.trim();
+    highlightMatches(query);
+  });
+
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      searchInput.value = '';
+      clearHighlights();
+      searchInput.blur();
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!searchContainer.contains(e.target)) {
+      clearHighlights();
+      searchInput.value = '';
+    }
+  });
+}
 
 // lightbox
 const lightbox = document.getElementById('lightbox');
@@ -124,4 +251,30 @@ function goTo(index) {
   carouselNext.addEventListener('click', () => goTo(current + 1));
 }
 
+// charity cards 
+const charityModal = document.getElementById('charity-modal');
+const modalTitle   = document.getElementById('modal-title');
+const modalText    = document.getElementById('modal-text');
+const modalClose   = document.getElementById('charity-modal-close');
 
+document.querySelectorAll('.charity-card').forEach(card => {
+  card.addEventListener('click', () => {
+    modalTitle.textContent = card.dataset.title;
+    modalText.textContent  = card.dataset.text;
+    charityModal.classList.add('active');
+  });
+});
+
+modalClose.addEventListener('click', () => charityModal.classList.remove('active'));
+charityModal.addEventListener('click', (e) => {
+  if (e.target === charityModal) charityModal.classList.remove('active');
+});
+
+//  donation slider
+const donationSlider = document.getElementById('donation-slider');
+const donationValue  = document.getElementById('donation-value');
+if (donationSlider) {
+  donationSlider.addEventListener('input', () => {
+    donationValue.textContent = donationSlider.value;
+  });
+}
