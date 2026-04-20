@@ -1,7 +1,8 @@
+// Google translator feature
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
     pageLanguage: 'en',
-    includedLanguages: 'en,hi,fr,mi,tl,ko,zh-CN', 
+    includedLanguages: 'en,hi,fr,mi,tl,ko,zh-CN,ja', 
     layout: google.translate.TranslateElement.InlineLayout.SIMPLE
   }, 'google_translate_element');
 }
