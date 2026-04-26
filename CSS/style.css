@@ -28,6 +28,33 @@
   --transition: 0.3s ease;
 }
 
+/* =================== keyframes =================== */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes kenBurns {
+  from { transform: translate(-50%, -50%) scale(1); }
+  to   { transform: translate(-50%, -50%) scale(1.08); }
+}
+
 /* =================== Base =================== */
 
 body {
@@ -176,11 +203,11 @@ body {
 
 .back-to-top {
   position: fixed;
-  bottom: 380px;
+  bottom: 30px;
   right: 30px;
   width: 44px;
   height: 44px;
-  background: var(--clr-opaque-black);
+  background: var(--clr-accent-lt);
   border: none;
   border-radius: 50%;
   font-size: 1.2rem;
@@ -214,7 +241,6 @@ body {
 }
 
 .back-to-top:hover {
-  background: var(--clr-accent-lt);
   transform: translateY(-3px);
 }
 
@@ -268,6 +294,7 @@ body.dyslexic-mode button {
   z-index: 1000;
   font-family: var(--font-body);
   transition: background var(--transition), box-shadow var(--transition);
+  animation: fadeDown 0.6s ease both;
 }
 
 .site-header.scrolled {
@@ -329,6 +356,11 @@ html.translated-rtl .navigation-container {
   gap: 0.75rem;
   overflow: visible;
   margin-right: 40px;
+}
+
+.nav-links li a.active { 
+  border-bottom: 2px solid var(--clr-accent-lt);
+  background-color: transparent;
 }
 
 /* =================== search =================== */
@@ -509,7 +541,7 @@ mark.search-highlight {
 
 /* =================== @media mobile nav =================== */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 
   .navigation-container {
     grid-template-columns: auto auto;
@@ -524,23 +556,32 @@ mark.search-highlight {
   }
 
   .nav-links {
-    display: flex !important;
-    flex-direction: column;
-    gap: 0;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 230px;
-    background-color: var(--clr-dark);
-    border-radius: 0 0 var(--radius-md) var(--radius-md);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(-6px);
-    pointer-events: none;
-    transition: all var(--transition);
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 230px;
+  background-color: var(--clr-dark);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.nav-links.active {
+  max-height: 320px;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
 
   .nav-links li {
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
@@ -562,12 +603,12 @@ mark.search-highlight {
     color: var(--clr-accent-lt);
   }
 
-  .nav-links.active {
-    max-height: 320px;  
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+  .nav-links li a.active {
+  border-bottom: none;
+  border-left: 3px solid var(--clr-accent-lt);
+  padding-left: calc(1.25rem - 3px);
   }
+
 }
 
 
@@ -702,12 +743,13 @@ mark.search-highlight {
   object-fit: cover;
   transform: translate(-50%, -50%);
   z-index: 0;
+  animation: kenBurns 20s ease-in-out infinite alternate;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(44, 43, 43, 0.6);
+  background: rgba(44, 43, 43, 0.70);
   z-index: 1;
 }
 
@@ -724,10 +766,13 @@ mark.search-highlight {
   font-size: 3rem;
   color: var(--clr-white);
   margin-bottom: 10px;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+  animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
 }
 
-.hero-content p {
+.hero-content > p {
   margin-bottom: 25px;
+  animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
 }
 
 .hero-buttons {
@@ -737,6 +782,13 @@ mark.search-highlight {
   align-items: center;
   gap: 30px;
   width: 100%;
+  animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.75s both;
+}
+
+.hero-btn.primary {
+  background: var(--clr-accent-lt);
+  color: var(--clr-dark);
+  border-color: transparent;
 }
 
 .hero-btn {
@@ -749,7 +801,7 @@ mark.search-highlight {
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: var(--clr-white);
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: all var(--transition);
 }
@@ -774,14 +826,20 @@ mark.search-highlight {
   margin: auto;
 }
 
-.purpose h2 {
+.purpose-container h2 {
   font-size: 2.2rem;
   color: var(--clr-dark);
   margin-bottom: 20px;
+  animation: fadeUp linear both;
+  animation-timeline: view();
+  animation-range: entry 5% entry 30%;
 }
 
-.purpose p {
+.purpose-container p {
   color: var(--clr-dark-alt);
+  animation: fadeUp linear both;
+  animation-timeline: view();
+  animation-range: entry 10% entry 35%;
 }
 
 
@@ -809,19 +867,22 @@ mark.search-highlight {
 
 .info-img {
   flex: 1;
-  min-height: 300px;
-  max-height: 500px;
+  min-height: 400px;
+  max-height: 400px;
+  overflow: hidden;
 }
 
 .info-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: filter var(--transition);
+  object-position: center;
+  transition: filter var(--transition), transform var(--transition);
 }
 
 .info-img:hover img {
   filter: brightness(50%);
+  transform: scale(1.03);
 }
 
 .info-text {
@@ -855,6 +916,32 @@ mark.search-highlight {
   color: var(--clr-accent-lt);
 }
 
+/* info row directional animations */
+
+.info-row .info-img {
+  animation: slideLeft linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
+}
+
+.info-row .info-text {
+  animation: slideRight linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
+}
+
+.info-row-reverse .info-img {
+  animation: slideRight linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
+}
+
+.info-row-reverse .info-text {
+  animation: slideLeft linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
+}
+
 
 /* =================== home - events - grid =================== */
 
@@ -868,11 +955,17 @@ mark.search-highlight {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 50px;
+  animation: fadeUp linear both;
+  animation-timeline: view();
+  animation-range: entry 5% entry 30%;
 }
 
 .events-grid {
   display: flex;
   gap: 20px;
+  animation: fadeUp linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 22%;
 }
 
 .event-card {
@@ -945,15 +1038,24 @@ mark.search-highlight {
 /* =================== home — responsive =================== */
 
 @media (max-width: 768px) {
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero-btn {
+    width: 200px;
+  }
   .info-row,
   .info-row-reverse {
     flex-direction: column;
   }
 
   .info-img {
-    min-height: 200px;
+    min-height: 250px;
+    max-height: 250px;
   }
-
   .info-text {
     padding: 20px;
     text-align: center;
@@ -961,6 +1063,69 @@ mark.search-highlight {
 
   .events-grid {
     flex-direction: column;
+  }
+
+  .event-card {
+    height: auto;
+    min-height: 280px;
+  }
+
+  .event-card img {
+    height: 280px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .event-overlay {
+    position: relative;
+    inset: unset;
+    background: var(--clr-dark);
+    padding: 20px;
+  }
+
+  .event-overlay h3 {
+    color: var(--clr-accent-lt);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    text-align: left;
+    opacity: 1;
+  }
+
+  .event-overlay p {
+    position: static;
+    opacity: 1;
+    transform: none;
+    font-size: 0.85rem;
+    text-align: left;
+    color: var(--clr-white);
+  }
+
+  @media (orientation: landscape) {
+  .hero {
+      height: auto;
+      min-height: 100svh;
+      padding: 120px 20px 60px;
+    }
+
+    .hero-content h1 {
+      font-size: 1.75rem;
+      margin-bottom: 8px;
+    }
+
+    .hero-content > p {
+      margin-bottom: 15px;
+    }
+
+    .hero-buttons {
+      flex-direction: row;
+      gap: 15px;
+      padding-bottom: 20px;
+    }
+
+    .hero-btn {
+      width: auto;
+      padding: 10px 18px;
+    }
   }
 }
 
@@ -978,6 +1143,9 @@ mark.search-highlight {
   flex: 1;
   position: relative;
   overflow: hidden;
+  animation: slideLeft linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
 }
  
 .reservations-hero-img img {
@@ -999,6 +1167,9 @@ mark.search-highlight {
   text-align: center;
   padding: 60px 50px;
   gap: 20px;
+  animation: slideRight linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
 }
  
 .reservations-hero-text h1 {
@@ -1151,6 +1322,9 @@ mark.search-highlight {
   flex-direction: column;
   justify-content: center;
   gap: 20px;
+  animation: slideLeft linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
 }
 
 .reservation-tagline {
@@ -1207,6 +1381,9 @@ mark.search-highlight {
   flex-direction: column;
   justify-content: center;
   gap: 10px;
+  animation: slideRight linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
 }
 
 .reservation-form-wrapper h2 {
@@ -1301,6 +1478,9 @@ mark.search-highlight {
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  animation: fadeUp linear both;
+  animation-timeline: view();
+  animation-range: entry 5% entry 30%;
 }
 
 .findus-tagline{
@@ -1330,6 +1510,9 @@ mark.search-highlight {
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeUp linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
 }
 
 .findus-map iframe {
@@ -1355,6 +1538,9 @@ mark.search-highlight {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  animation: fadeUp linear both;
+  animation-timeline: view();
+  animation-range: entry 5% entry 30%;
 }
 
 .contact-header h2 {
@@ -1376,6 +1562,9 @@ mark.search-highlight {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  animation: fadeUp linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
 }
 
 .contact-form .form-group input,
@@ -1481,6 +1670,9 @@ mark.search-highlight {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  animation: fadeUp linear both;
+  animation-timeline: view();
+  animation-range: entry 5% entry 30%;
 }
 
 .chef-tagline {
@@ -1507,6 +1699,9 @@ mark.search-highlight {
   gap: 1000px;
   width: 100%;
   overflow: hidden;
+  animation: fadeUp linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 20%;
 }
 
 .strip-wrap {
@@ -1624,6 +1819,9 @@ mark.search-highlight {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  animation: fadeUp linear both;
+  animation-timeline: view();
+  animation-range: entry 5% entry 30%;
 }
 
 .menu-tagline {
@@ -1664,6 +1862,30 @@ mark.search-highlight {
   display: flex;
   flex-direction: column;
   gap: 4px;
+}
+
+.menu-card:nth-child(1) {
+  animation: slideLeft linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
+}
+
+.menu-card:nth-child(2) {
+  animation: slideRight linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
+}
+
+.menu-card:nth-child(3) {
+  animation: slideLeft linear both;
+  animation-timeline: view();
+  animation-range: entry 5% entry 35%;
+}
+
+.menu-card:nth-child(4) {
+  animation: slideRight linear both;
+  animation-timeline: view();
+  animation-range: entry 5% entry 35%;
 }
 
 /* card heading */
@@ -1856,12 +2078,14 @@ mark.search-highlight {
   font-size: 3rem;
   color: var(--clr-white);
   margin-bottom: 10px;
+  animation: none;
 }
 
 .carousel-hero-card .hero-content p {
   max-width: 600px;
   margin: 0;
   opacity: 0.9;
+  animation: none;
 }
 
 /* arrows */
@@ -1926,6 +2150,9 @@ mark.search-highlight {
   padding: 40px 40px 30px;
   gap: 12px;
   max-width: 700px;
+  animation: fadeUp linear both;
+  animation-timeline: view();
+  animation-range: entry 5% entry 30%;
 }
 
 .kitchen-row-content p {
@@ -2059,6 +2286,32 @@ mark.search-highlight {
   margin: 0;
 }
 
+/* experience row directional animations */
+
+.experience-row .experience-img {
+  animation: slideLeft linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
+}
+
+.experience-row .experience-text {
+  animation: slideRight linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
+}
+
+.experience-row--reverse .experience-img {
+  animation: slideRight linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
+}
+
+.experience-row--reverse .experience-text {
+  animation: slideLeft linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
+}
+
 /* =================== experience — charity =================== */
 
 .charity-section {
@@ -2072,6 +2325,9 @@ mark.search-highlight {
 .charity-img {
   flex: 1;
   overflow: hidden;
+  animation: slideLeft linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
 }
 
 .charity-img img {
@@ -2096,6 +2352,9 @@ mark.search-highlight {
   text-align: center;
   padding: 20px 50px;
   gap: 20px;
+  animation: slideRight linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
 }
 
 .charity-text h3 {
@@ -2175,6 +2434,9 @@ mark.search-highlight {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   height: 1000px;
+  animation: fadeUp linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 20%;
 }
 
 .charity-card {
@@ -2310,6 +2572,9 @@ mark.search-highlight {
   flex: 1;
   position: relative;
   overflow: hidden;
+  animation: slideLeft linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
 }
 
 .donation-img img {
@@ -2355,6 +2620,9 @@ mark.search-highlight {
   gap: 14px;
   justify-content: center;
   border-left: 1px solid rgba(0,0,0,0.06);
+  animation: slideRight linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
 }
 
 .donation-form-panel input[type="text"] {
@@ -2422,6 +2690,9 @@ mark.search-highlight {
   font-size: 2rem;
   color: var(--clr-accent);
   font-style: italic;
+  animation: fadeUp linear both;
+  animation-timeline: view();
+  animation-range: entry 5% entry 30%;
 }
 
 /* =================== charity — responsive =================== */

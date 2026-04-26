@@ -252,25 +252,26 @@ function goTo(index) {
   carouselNext.addEventListener('click', () => goTo(current + 1));
 }
 
-// charity cards 
+// charity cards
 const charityModal = document.getElementById('charity-modal');
 const modalTitle   = document.getElementById('modal-title');
 const modalText    = document.getElementById('modal-text');
 const modalClose   = document.getElementById('charity-modal-close');
 
-document.querySelectorAll('.charity-card').forEach(card => {
-  card.addEventListener('click', () => {
-    modalTitle.textContent = card.dataset.title;
-    modalText.textContent  = card.dataset.text;
-    charityModal.classList.add('active');
+if (charityModal && modalClose) {
+  document.querySelectorAll('.charity-card').forEach(card => {
+    card.addEventListener('click', () => {
+      modalTitle.textContent = card.dataset.title;
+      modalText.textContent  = card.dataset.text;
+      charityModal.classList.add('active');
+    });
   });
-});
 
-modalClose.addEventListener('click', () => charityModal.classList.remove('active'));
-charityModal.addEventListener('click', (e) => {
-  if (e.target === charityModal) charityModal.classList.remove('active');
-});
-
+  modalClose.addEventListener('click', () => charityModal.classList.remove('active'));
+  charityModal.addEventListener('click', (e) => {
+    if (e.target === charityModal) charityModal.classList.remove('active');
+  });
+}
 //  donation slider
 const donationSlider = document.getElementById('donation-slider');
 const donationValue  = document.getElementById('donation-value');
@@ -279,3 +280,10 @@ if (donationSlider) {
     donationValue.textContent = donationSlider.value;
   });
 }
+
+// active nav link
+document.querySelectorAll('.nav-links li a').forEach(link => {
+  const page = window.location.pathname.replace(/\/$/, '') || '/index.html';
+  const linkPage = link.pathname.replace(/\/$/, '');
+  if (linkPage === page) link.classList.add('active');
+});
