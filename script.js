@@ -333,6 +333,7 @@ const forms = document.querySelectorAll('.reservation-form, .contact-form');
 forms.forEach(form => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+    if (form.querySelector('.form-confirmation')) return;
     const confirmation = document.createElement('p');
     confirmation.classList.add('form-confirmation');
     confirmation.textContent = 'Thank you! Your message has been received. We will be in touch shortly.';
@@ -344,9 +345,78 @@ const donationBtn = document.querySelector('.donation-pay-btn');
 if (donationBtn) {
   donationBtn.addEventListener('click', () => {
     const panel = document.querySelector('.donation-form-panel');
+    if (panel.querySelector('.form-confirmation')) return;
     const confirmation = document.createElement('p');
     confirmation.classList.add('form-confirmation');
     confirmation.textContent = 'Thank you for your generous donation! Your contribution means a lot.';
     panel.appendChild(confirmation);
   });
 }
+
+// =================== Scroll animations ===================
+(function () {
+
+  const map = [
+    // home
+    { s: '.purpose-container h2',                type: 'fade-up' },
+    { s: '.purpose-container p',                 type: 'fade-up' },
+    { s: '.section-heading',                     type: 'fade-up' },
+    { s: '.events-grid',                         type: 'fade-up' },
+    { s: '.info-row .info-img',                  type: 'slide-left' },
+    { s: '.info-row .info-text',                 type: 'slide-right' },
+    { s: '.info-row-reverse .info-img',          type: 'slide-right' },
+    { s: '.info-row-reverse .info-text',         type: 'slide-left' },
+    // reservations
+    { s: '.reservations-hero-img',               type: 'slide-left' },
+    { s: '.reservations-hero-text',              type: 'slide-right' },
+    { s: '.reservation-details',                 type: 'slide-left' },
+    { s: '.reservation-form-wrapper',            type: 'slide-right' },
+    { s: '.findus-header',                       type: 'fade-up' },
+    { s: '.findus-map',                          type: 'fade-up' },
+    { s: '.contact-header',                      type: 'fade-up' },
+    { s: '.contact-form',                        type: 'fade-up' },
+    // menu
+    { s: '.chef-header',                         type: 'fade-up' },
+    { s: '.chef-strips',                         type: 'fade-up' },
+    { s: '.menu-header',                         type: 'fade-up' },
+    { s: '.menu-cta-img',                        type: 'slide-left' },
+    { s: '.menu-cta-text',                       type: 'slide-right' },
+    // experience
+    { s: '.kitchen-row-content',                 type: 'fade-up' },
+    { s: '.experience-row .experience-img',      type: 'slide-left' },
+    { s: '.experience-row .experience-text',     type: 'slide-right' },
+    { s: '.experience-row--reverse .experience-img',  type: 'slide-right' },
+    { s: '.experience-row--reverse .experience-text', type: 'slide-left' },
+    { s: '.charity-section .charity-img',        type: 'slide-left' },
+    { s: '.charity-section .charity-text',       type: 'slide-right' },
+    // charity page
+    { s: '.charity-events-grid',                 type: 'fade-up' },
+    { s: '.donation-form-panel',                 type: 'slide-right' },
+    { s: '.thankyou-banner h2',                  type: 'fade-up' },
+  ];
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  // register all mapped elements
+  map.forEach(({ s, type }) => {
+    document.querySelectorAll(s).forEach(el => {
+      el.classList.add('anim-' + type);
+      observer.observe(el);
+    });
+  });
+
+  // menu cards alternate left/right by position
+  document.querySelectorAll('.menu-card').forEach((card, i) => {
+    const type = i % 2 === 0 ? 'slide-left' : 'slide-right';
+    card.classList.add('anim-' + type);
+    observer.observe(card);
+  });
+
+})();

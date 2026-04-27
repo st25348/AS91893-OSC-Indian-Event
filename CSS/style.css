@@ -28,7 +28,7 @@
   --transition: 0.3s ease;
 }
 
-/* =================== keyframes =================== */
+/* =================== animation keyframes =================== */
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(28px); }
@@ -40,19 +40,31 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes slideLeft {
-  from { opacity: 0; transform: translateX(-50px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideRight {
-  from { opacity: 0; transform: translateX(50px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
 @keyframes kenBurns {
   from { transform: translate(-50%, -50%) scale(1); }
   to   { transform: translate(-50%, -50%) scale(1.08); }
+}
+
+/* =================== JS scroll animations =================== */
+
+.anim-fade-up,
+.anim-slide-left,
+.anim-slide-right {
+  opacity: 0;
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.anim-fade-up    { transform: translateY(32px); }
+.anim-slide-left { transform: translateX(-55px); }
+.anim-slide-right{ transform: translateX(55px); }
+
+.anim-fade-up.in-view,
+.anim-slide-left.in-view,
+.anim-slide-right.in-view {
+  opacity: 1;
+  transform: none;
 }
 
 /* =================== Base =================== */
@@ -82,7 +94,6 @@ a {
   margin: 0 auto;
   padding: 0 1rem;
 }
-
 
 /* =================== typography =================== */
 
@@ -157,6 +168,16 @@ body {
   outline-offset: 2px;
 }
 
+/* =================== tag line =================== */
+
+.tagline {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin: 0;
+}
 
 /* =================== light box =================== */
 
@@ -703,7 +724,18 @@ mark.search-highlight {
   margin-top: 20px;
   padding-top: 20px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.footer-credits {
+  font-size: 0.75rem;
+  color: var(--clr-white);
+  opacity: 0.45;
+  margin: 0;
+  line-height: 1.6;
 }
 
 .footer-copy p {
@@ -840,20 +872,13 @@ mark.search-highlight {
   font-size: 2.2rem;
   color: var(--clr-dark);
   margin-bottom: 20px;
-  animation: fadeUp linear both;
-  animation-timeline: view();
-  animation-range: entry 5% entry 30%;
 }
 
 .purpose-container p {
   color: var(--clr-dark-alt);
-  animation: fadeUp linear both;
-  animation-timeline: view();
-  animation-range: entry 10% entry 35%;
 }
 
-
-/* home — info cards */
+/* =================== info - cards =================== */
 
 .info-section {
   display: grid;
@@ -880,6 +905,7 @@ mark.search-highlight {
   min-height: 400px;
   max-height: 400px;
   overflow: hidden;
+  margin: 20px;
 }
 
 .info-img img {
@@ -905,11 +931,10 @@ mark.search-highlight {
 
 .info-text h3 {
   font-size: 2rem;
-  color: var(--clr-dark);
   margin-bottom: 15px;
 }
 
-.info-text p {
+.info-text p:not(.tagline) {
   font-size: 1.1rem;
   color: var(--clr-dark-alt);
 }
@@ -926,33 +951,6 @@ mark.search-highlight {
   color: var(--clr-accent-lt);
 }
 
-/* info row directional animations */
-
-.info-row .info-img {
-  animation: slideLeft linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 35%;
-}
-
-.info-row .info-text {
-  animation: slideRight linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 35%;
-}
-
-.info-row-reverse .info-img {
-  animation: slideRight linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 35%;
-}
-
-.info-row-reverse .info-text {
-  animation: slideLeft linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 35%;
-}
-
-
 /* =================== home - events - grid =================== */
 
 .events-section {
@@ -965,17 +963,11 @@ mark.search-highlight {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 50px;
-  animation: fadeUp linear both;
-  animation-timeline: view();
-  animation-range: entry 5% entry 30%;
 }
 
 .events-grid {
   display: flex;
   gap: 20px;
-  animation: fadeUp linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 22%;
 }
 
 .event-card {
@@ -1153,9 +1145,6 @@ mark.search-highlight {
   flex: 1;
   position: relative;
   overflow: hidden;
-  animation: slideLeft linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 35%;
 }
  
 .reservations-hero-img img {
@@ -1177,9 +1166,6 @@ mark.search-highlight {
   text-align: center;
   padding: 60px 50px;
   gap: 20px;
-  animation: slideRight linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 35%;
 }
  
 .reservations-hero-text h1 {
@@ -1269,10 +1255,6 @@ mark.search-highlight {
   margin: 0;
 }
 
-.timeline-btn:hover{
-  color: var(--clr-dark-alt);
-}
-
 /* featured dine-in card */
 
 .timeline-card--featured {
@@ -1341,18 +1323,6 @@ mark.search-highlight {
   flex-direction: column;
   justify-content: center;
   gap: 20px;
-  animation: slideLeft linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 35%;
-}
-
-.reservation-tagline {
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--clr-accent);
-  margin: 0;
 }
 
 .reservation-details h2 {
@@ -1400,9 +1370,6 @@ mark.search-highlight {
   flex-direction: column;
   justify-content: center;
   gap: 10px;
-  animation: slideRight linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 35%;
 }
 
 .reservation-form-wrapper h2 {
@@ -1497,18 +1464,6 @@ mark.search-highlight {
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  animation: fadeUp linear both;
-  animation-timeline: view();
-  animation-range: entry 5% entry 30%;
-}
-
-.findus-tagline{
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--clr-accent);
-  margin: 0;
 }
 
 .findus-header h2 {
@@ -1529,9 +1484,6 @@ mark.search-highlight {
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-  animation: fadeUp linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 30%;
 }
 
 .findus-map iframe {
@@ -1557,9 +1509,6 @@ mark.search-highlight {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  animation: fadeUp linear both;
-  animation-timeline: view();
-  animation-range: entry 5% entry 30%;
 }
 
 .contact-header h2 {
@@ -1581,9 +1530,6 @@ mark.search-highlight {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  animation: fadeUp linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 30%;
 }
 
 .contact-form .form-group input,
@@ -1689,25 +1635,13 @@ mark.search-highlight {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  animation: fadeUp linear both;
-  animation-timeline: view();
-  animation-range: entry 5% entry 30%;
-}
-
-.chef-tagline {
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--clr-accent);
-  margin: 0;
 }
 
 .chef-header h2 {
   margin: 0;
 }
 
-.chef-header p {
+.chef-header p:not(.tagline){
   color: var(--clr-dark-alt);
   margin: 0;
 }
@@ -1718,9 +1652,6 @@ mark.search-highlight {
   gap: 20px;
   width: 100%;
   overflow: hidden;
-  animation: fadeUp linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 20%;
 }
 
 .strip-wrap {
@@ -1838,25 +1769,13 @@ mark.search-highlight {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  animation: fadeUp linear both;
-  animation-timeline: view();
-  animation-range: entry 5% entry 30%;
-}
-
-.menu-tagline {
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--clr-accent);
-  margin: 0;
 }
 
 .menu-header h2 {
   margin: 0;
 }
 
-.menu-header p {
+.menu-header p:not(.tagline){
   color: var(--clr-dark-alt);
   margin: 0;
 }
@@ -1881,30 +1800,6 @@ mark.search-highlight {
   display: flex;
   flex-direction: column;
   gap: 4px;
-}
-
-.menu-card:nth-child(1) {
-  animation: slideLeft linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 50%;
-}
-
-.menu-card:nth-child(2) {
-  animation: slideRight linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 50%;
-}
-
-.menu-card:nth-child(3) {
-  animation: slideLeft linear both;
-  animation-timeline: view();
-  animation-range: entry 5% entry 50%;
-}
-
-.menu-card:nth-child(4) {
-  animation: slideRight linear both;
-  animation-timeline: view();
-  animation-range: entry 5% entry 50%;
 }
 
 /* card heading */
@@ -2032,9 +1927,6 @@ mark.search-highlight {
 .menu-cta-img {
   flex: 1;
   overflow: hidden;
-  animation: slideLeft linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 50%;
 }
 
 .menu-cta-img img {
@@ -2059,9 +1951,6 @@ mark.search-highlight {
   text-align: center;
   padding: 20px 50px;
   gap: 20px;
-  animation: slideRight linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 50%;
 }
 
 .menu-cta-text h2 {
@@ -2250,9 +2139,6 @@ mark.search-highlight {
   padding: 40px 40px 30px;
   gap: 12px;
   max-width: 700px;
-  animation: fadeUp linear both;
-  animation-timeline: view();
-  animation-range: entry 5% entry 30%;
 }
 
 .kitchen-row-content p {
@@ -2287,11 +2173,11 @@ mark.search-highlight {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 20px;
+  padding: 24px;
   color: var(--clr-white);
-  background: linear-gradient(to top, rgba(44, 43, 43, 0.8), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.92) 40%, transparent);
   opacity: 0;
-  transition: opacity var(--transition);
+  transition: opacity 0.4s ease;
   pointer-events: none;
 }
 
@@ -2300,10 +2186,19 @@ mark.search-highlight {
 }
 
 .kitchen-overlay h3 {
-  color: var(--clr-accent);
-  font-size: 1.6rem;
-  text-align: center;
+  color: var(--clr-accent-lt);
+  font-size: 1.4rem;
+  text-align: left;
+  margin-bottom: 8px;
   transition: opacity var(--transition), transform var(--transition);
+}
+
+.kitchen-overlay p {
+  font-size: 0.9rem;
+  color: var(--clr-white);
+  opacity: 0.9;
+  line-height: 1.5;
+  margin: 0;
 }
 
 .kitchen-card:hover img {
@@ -2333,6 +2228,7 @@ mark.search-highlight {
   padding-top: 20px;
   padding-bottom: 20px;
   background-color: var(--clr-cream);
+  text-align: center;
 }
 
 .experience-row {
@@ -2350,6 +2246,7 @@ mark.search-highlight {
   min-height: 300px;
   max-height: 500px;
   overflow: hidden;
+  margin: 20px;
 }
 
 .experience-img img {
@@ -2380,36 +2277,10 @@ mark.search-highlight {
   margin: 0;
 }
 
-.experience-text p {
+.experience-text p:not(.tagline) {
   font-size: 1rem;
   color: var(--clr-dark-alt);
   margin: 0;
-}
-
-/* experience row directional animations */
-
-.experience-row .experience-img {
-  animation: slideLeft linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 35%;
-}
-
-.experience-row .experience-text {
-  animation: slideRight linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 35%;
-}
-
-.experience-row--reverse .experience-img {
-  animation: slideRight linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 35%;
-}
-
-.experience-row--reverse .experience-text {
-  animation: slideLeft linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 35%;
 }
 
 /* =================== experience — charity =================== */
@@ -2425,9 +2296,6 @@ mark.search-highlight {
 .charity-img {
   flex: 1;
   overflow: hidden;
-  animation: slideLeft linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 35%;
 }
 
 .charity-img img {
@@ -2452,9 +2320,6 @@ mark.search-highlight {
   text-align: center;
   padding: 20px 50px;
   gap: 20px;
-  animation: slideRight linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 35%;
 }
 
 .charity-text h3 {
@@ -2534,9 +2399,6 @@ mark.search-highlight {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   height: 1000px;
-  animation: fadeUp linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 20%;
 }
 
 .charity-card {
@@ -2670,30 +2532,27 @@ mark.search-highlight {
 
 .donation-img {
   flex: 1;
-  max-width: 50%;
-  position: relative;
+  min-height: 400px;
+  max-height: 400px;
   overflow: hidden;
   margin: 20px;
-  border-radius: var(--radius-md);
-  animation: slideLeft linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 35%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 0;
+  position: relative;
 }
 
 .donation-img img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: static;
+  transform: none;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  display: block;
-  transition: filter var(--transition);
+  transition: filter var(--transition), transform var(--transition);
+}
+
+.donation-img:hover img {
+  filter: brightness(50%);
+  transform: scale(1.03);
 }
 
 .donation-form-panel {
@@ -2704,10 +2563,6 @@ mark.search-highlight {
   flex-direction: column;
   gap: 14px;
   justify-content: center;
-}
-
-.donation-img:hover img{
-  filter: brightness(50%);
 }
 
 .donation-img-label {
@@ -2742,18 +2597,16 @@ mark.search-highlight {
   flex-direction: column;
   gap: 14px;
   justify-content: center;
-  animation: slideRight linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 35%;
 }
 
 .donation-form-panel input[type="text"] {
   width: 100%;
-  padding: 11px 14px;
+  padding: 12px 15px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: var(--radius-sm);
   font-family: var(--font-body);
-  font-size: 0.9rem;
-  background: var(--clr-cream);
+  font-size: 0.95rem;
+  background-color: var(--clr-cream);
   color: var(--clr-dark-alt);
   transition: border-color var(--transition);
 }
@@ -2786,18 +2639,20 @@ mark.search-highlight {
 }
 
 .donation-pay-btn {
-  width: auto;
   align-self: center;
-  padding: 0.75rem 2.5rem;
-  background: transparent;
-  color: var(--clr-dark);
-  border: 1.5px solid var(--clr-dark);
+  padding: 0.85rem 2.5rem;
+  background-color: var(--clr-accent);
+  color: var(--clr-white);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition), transform var(--transition);
 }
 
 .donation-pay-btn:hover {
-  background: var(--clr-dark);
-  color: var(--clr-white);
-  transform: none;
+  transform: translateY(-2px);
 }
 
 /* =================== charity — thank you =================== */
@@ -2813,9 +2668,6 @@ mark.search-highlight {
   font-size: 2rem;
   color: var(--clr-accent);
   font-style: italic;
-  animation: fadeUp linear both;
-  animation-timeline: view();
-  animation-range: entry 5% entry 30%;
 }
 
 /* =================== charity — responsive =================== */
