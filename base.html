@@ -14,8 +14,8 @@
       <!-- ===== Icons ===== -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
       <!-- ===== Favicon ===== -->
-    <link rel="icon" type="image/png" sizes="16x16" href="OSC-event-images/logo_background_removed.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="OSC-event-images/logo_background_removed.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Assets/Images/OSC_events-logo.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Assets/Images/logo_background_removed.png">
       <!-- ===== Google Translate ===== -->
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </head>
@@ -47,6 +47,7 @@
             </button>
             <input type="text" class="search-input" placeholder="Search..." aria-label="Search the site">
           </div>
+          
           <!-- Settings -->
           <div class="settings-menu">
             <button class="settings-btn" aria-label="Open settings menu" aria-haspopup="true" aria-expanded="false">
@@ -54,38 +55,29 @@
             </button>
             <div class="dropdown-content">
               <div class="dropdown-item">
-                <label>Language:</label>
+                <label>Language</label>
                 <div id="google_translate_element"></div>
               </div>
-
               <div class="dropdown-item">
-                <label for="dark-mode-toggle">Dark Mode</label>
-                <input type="checkbox" id="dark-mode-toggle">
-              </div>
-
-              <div class="dropdown-item">
-                <label for="dyslexic-toggle">Dyslexic-Friendly Font</label>
+                <label for="dyslexic-toggle">Dyslexic Font</label>
                 <input type="checkbox" id="dyslexic-toggle">
-              </div>
-
-              <div  class="dropdown-item">
-                <label for="contrast-toggle">High Contrast Mode</label>
-                <input type="checkbox" id="contrast-toggle">
               </div>
             </div>
           </div>
 
           <!-- Hamburger Menu -->
-          <div class="hamburger-menu">
-            <img src="/Assets/icons/svg/basic/bxs-menu-wider.svg" alt="Hamburger menu icon to show or hide navigation">
-          </div>
+          <button class="hamburger-menu" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
 
         </div>
       </div>
     </header>
     <!-- ======================== MAIN ============================ -->
     <main>
-      <!-- Content comes here -->
+        <!-- content goes here -->
     </main>
     <!-- ======================= FOOTER =========================== -->
     <footer class="site-footer">
@@ -95,13 +87,14 @@
           <img src="/Assets/Images/logo_background_removed.png" alt="Ormiston Senior College logo in footer" class="footer-logo">
         </div>
         <!-- Footer Navigation -->
+        <!-- Footer Navigation -->
         <nav class="footer-column footer-nav">
           <ul>
-            <li><a href="#event">Event</a></li>
-            <li><a href="#details">Details</a></li>
-            <li><a href="#menu">Menu</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#reservation">Reservation</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="reservations.html">Reservations</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="charity.html">Charity & Other</a></li>
           </ul>
         </nav>
         <!-- Contact -->
@@ -114,9 +107,9 @@
             <p>Email: <a href="mailto:info@ormiston.school.nz">info@ormiston.school.nz</a></p>
           </div>
           <div class="social-links">
-            <a href="#"><i class="bx bxl-instagram"></i></a>
-            <a href="#"><i class="bx bxl-facebook"></i></a>
-            <a href="#"><i class="bx bx-envelope"></i></a>
+            <a href="https://www.instagram.com/ormiston_senior_college/"  target="_blank" rel="noopener noreferrer" ><i class="bx bxl-instagram"></i></a>
+            <a href="https://www.facebook.com/OrmistonSeniorCollege/"  target="_blank" rel="noopener noreferrer" ><i class="bx bxl-facebook"></i></a>
+            <a href="mailto:info@ormiston.school.nz"  target="_blank" rel="noopener noreferrer" ><i class="bx bx-envelope"></i></a>
           </div>
         </div>
         <!-- Copyright -->
@@ -125,11 +118,29 @@
         </div>
       </div>
     </footer>
+
+    <!-- BACK TO TOP -->
+    <div class="back-to-top" id="back-to-top">
+      <button aria-label="Back to top"><img src="Assets/icons/svg/basic/bxs-arrow-up-stroke.svg" alt="back to top button"></button>
+    </div>
+
     <!-- LIGHTBOX -->
     <div class="lightbox" id="lightbox">
       <button class="lightbox-close" id="lightbox-close">✕</button>
       <img  id="lightbox-img" src="/Assets/Place-holder/placeholder.gif" alt="placeholder image for lightbox">
     </div>
+
+    <!-- CHARITY MODAL -->
+    <div class="charity-modal" id="charity-modal">
+        <div class="charity-modal-box">
+            <button class="charity-modal-close" id="charity-modal-close">✕</button>
+            <h3 id="modal-title">Loading content...</h3>
+            <p id="modal-text">Loading content...</p>
+        </div>
+    </div>
+
+    <!-- java scipt-->
     <script src="script.js"></script>
+
   </body>
 </html>

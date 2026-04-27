@@ -219,37 +219,66 @@ if (slider && prevBtn && nextBtn) {
 }
 
 // experience carousel 
-
 const carouselSection = document.querySelector('.carousel-section');
 const carouselPrev    = document.querySelector('.carousel-prev');
 const carouselNext    = document.querySelector('.carousel-next');
 const carouselDots    = document.querySelector('.carousel-dots');
 const carouselCards   = document.querySelectorAll('.carousel-hero-card');
 
-if (carouselSection && carouselPrev && carouselNext) {
+if (carouselSection && carouselCards.length > 0) {
   let current = 0;
+  let autoSlide;
 
-  //build dot automatically 
-
-  carouselCards.forEach((_, i) => {
-    const dot = document.createElement('div');
-    dot.classList.add('carousel-dot');
-    if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goTo(i));
-    carouselDots.appendChild(dot);
+  // initialise positions
+  carouselCards.forEach((card, i) => {
+    card.style.transform = `translateX(${i * 100}%)`;
   });
 
-function goTo(index) {
-  const total = carouselCards.length;
-  current = (index + total) % total;
-  carouselCards[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-  document.querySelectorAll('.carousel-dot').forEach((d, i) => {
-    d.classList.toggle('active', i === current);
-  });
-}
+  function goTo(index) {
+    const total = carouselCards.length;
+    current = (index + total) % total;
+    carouselCards.forEach((card, i) => {
+      card.style.transform = `translateX(${(i - current) * 100}%)`;
+    });
+    document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
 
-  carouselPrev.addEventListener('click', () => goTo(current - 1));
-  carouselNext.addEventListener('click', () => goTo(current + 1));
+  // build dots
+  if (carouselDots) {
+    carouselCards.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.classList.add('carousel-dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        clearInterval(autoSlide);
+        goTo(i);
+        autoSlide = setInterval(() => goTo(current + 1), 4000);
+      });
+      carouselDots.appendChild(dot);
+    });
+  }
+
+  // arrows
+  if (carouselPrev) {
+    carouselPrev.addEventListener('click', () => {
+      clearInterval(autoSlide);
+      goTo(current - 1);
+      autoSlide = setInterval(() => goTo(current + 1), 4000);
+    });
+  }
+
+  if (carouselNext) {
+    carouselNext.addEventListener('click', () => {
+      clearInterval(autoSlide);
+      goTo(current + 1);
+      autoSlide = setInterval(() => goTo(current + 1), 4000);
+    });
+  }
+
+  // auto slide
+  autoSlide = setInterval(() => goTo(current + 1), 4000);
 }
 
 // charity cards
@@ -263,6 +292,17 @@ if (charityModal && modalClose) {
     card.addEventListener('click', () => {
       modalTitle.textContent = card.dataset.title;
       modalText.textContent  = card.dataset.text;
+      const existingLink = document.querySelector('.modal-starship-link');
+      if (existingLink) existingLink.remove();
+      if (card.dataset.title === 'Starship Foundation') {
+        const link = document.createElement('a');
+        link.href = 'https://starship.org.nz';
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = 'Visit Starship Foundation ↗';
+        link.classList.add('modal-starship-link');
+        document.querySelector('.charity-modal-box').appendChild(link);
+      }
       charityModal.classList.add('active');
     });
   });
@@ -287,3 +327,26 @@ document.querySelectorAll('.nav-links li a').forEach(link => {
   const linkPage = link.pathname.replace(/\/$/, '');
   if (linkPage === page) link.classList.add('active');
 });
+
+// form submition message
+const forms = document.querySelectorAll('.reservation-form, .contact-form');
+forms.forEach(form => {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const confirmation = document.createElement('p');
+    confirmation.classList.add('form-confirmation');
+    confirmation.textContent = 'Thank you! Your message has been received. We will be in touch shortly.';
+    form.appendChild(confirmation);
+  });
+});
+
+const donationBtn = document.querySelector('.donation-pay-btn');
+if (donationBtn) {
+  donationBtn.addEventListener('click', () => {
+    const panel = document.querySelector('.donation-form-panel');
+    const confirmation = document.createElement('p');
+    confirmation.classList.add('form-confirmation');
+    confirmation.textContent = 'Thank you for your generous donation! Your contribution means a lot.';
+    panel.appendChild(confirmation);
+  });
+}

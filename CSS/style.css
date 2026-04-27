@@ -244,6 +244,16 @@ body {
   transform: translateY(-3px);
 }
 
+/* =================== Form-submission confirmation-message =================== */
+
+.form-confirmation {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--clr-dark-alt);
+  padding: 20px 0;
+  font-weight: 500;
+}
+
 /* =================== accesibility =================== */
 
 body.dark-mode {
@@ -1192,6 +1202,15 @@ mark.search-highlight {
   text-align: center;
 }
 
+.timeline-disclaimer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--clr-dark-alt);
+  opacity: 0.6;
+  margin-bottom: 30px;
+  margin-top: -30px;
+}
+
 .timeline-slider-wrapper {
   display: flex;
   align-items: center;
@@ -1231,8 +1250,8 @@ mark.search-highlight {
 }
 
 .timeline-time {
+  font-weight: 700;
   font-size: 0.85rem;
-  font-weight: 500;
   color: var(--clr-accent);
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -1696,7 +1715,7 @@ mark.search-highlight {
 .chef-strips {
   display: flex;
   flex-direction: column;
-  gap: 1000px;
+  gap: 20px;
   width: 100%;
   overflow: hidden;
   animation: fadeUp linear both;
@@ -1867,25 +1886,25 @@ mark.search-highlight {
 .menu-card:nth-child(1) {
   animation: slideLeft linear both;
   animation-timeline: view();
-  animation-range: entry 0% entry 30%;
+  animation-range: entry 0% entry 50%;
 }
 
 .menu-card:nth-child(2) {
   animation: slideRight linear both;
   animation-timeline: view();
-  animation-range: entry 0% entry 30%;
+  animation-range: entry 0% entry 50%;
 }
 
 .menu-card:nth-child(3) {
   animation: slideLeft linear both;
   animation-timeline: view();
-  animation-range: entry 5% entry 35%;
+  animation-range: entry 5% entry 50%;
 }
 
 .menu-card:nth-child(4) {
   animation: slideRight linear both;
   animation-timeline: view();
-  animation-range: entry 5% entry 35%;
+  animation-range: entry 5% entry 50%;
 }
 
 /* card heading */
@@ -1920,10 +1939,7 @@ mark.search-highlight {
   border-radius: var(--radius-sm);
   border: 1px solid transparent;
   cursor: default;
-  transition: transform var(--transition),
-              box-shadow var(--transition),
-              background-color var(--transition),
-              border-color var(--transition);
+  transition: all var(--transition);
 }
 
 .menu-item:hover {
@@ -2003,6 +2019,77 @@ mark.search-highlight {
   color: var(--clr-accent);
 }
 
+/* =================== menu — cta strip =================== */
+
+.menu-cta-strip {
+  display: flex;
+  align-items: stretch;
+  min-height: 300px;
+  max-height: 500px;
+  background-color: var(--clr-accent);
+}
+
+.menu-cta-img {
+  flex: 1;
+  overflow: hidden;
+  animation: slideLeft linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 50%;
+}
+
+.menu-cta-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: zoom-in;
+  transition: filter var(--transition);
+}
+
+.menu-cta-img:hover img {
+  filter: brightness(50%);
+}
+
+.menu-cta-text  {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px 50px;
+  gap: 20px;
+  animation: slideRight linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 50%;
+}
+
+.menu-cta-text h2 {
+  color: var(--clr-white);
+  margin: 0;
+}
+
+.menu-cta-text p {
+  color: var(--clr-white);
+  max-width: 420px;
+  margin: 0;
+}
+
+.menu-cta-btn {
+  display: inline-block;
+  background: transparent;
+  color: var(--clr-dark);
+  border: 1px solid var(--clr-dark);
+  padding: 0.65rem 2rem;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  transition: all var(--transition);
+}
+
+.menu-cta-btn:hover {
+  background: var(--clr-opaque-black);
+  color: var(--clr-white);
+}
 
 /* =================== menu — responsive =================== */
 
@@ -2015,6 +2102,18 @@ mark.search-highlight {
 @media (max-width: 768px) {
   .menu-grid {
     grid-template-columns: 1fr;
+  }
+
+  .menu-cta-strip {
+    flex-direction: column;
+  }
+
+  .menu-cta-img {
+    min-height: 220px;
+  }
+
+  .menu-cta-text {
+    padding: 40px 25px;
   }
 }
 
@@ -2035,21 +2134,22 @@ mark.search-highlight {
 /* scrollable track */
 
 .carousel-section {
-  display: flex;
-  gap: 20px;
+  position: relative;
   width: 100%;
+  height: 70vh;
   overflow: hidden;
-  scroll-behavior: smooth;
 }
 
 /* individual slide */
 
 .carousel-hero-card {
-  position: relative;
-  flex: 0 0 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 70vh;
-  overflow: hidden;
   flex-shrink: 0;
+  transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .carousel-hero-card img {
@@ -2200,7 +2300,7 @@ mark.search-highlight {
 }
 
 .kitchen-overlay h3 {
-  color: var(--clr-white);
+  color: var(--clr-accent);
   font-size: 1.6rem;
   text-align: center;
   transition: opacity var(--transition), transform var(--transition);
@@ -2563,26 +2663,47 @@ mark.search-highlight {
   align-items: stretch;
   min-height: 320px;
   max-height: 520px;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background: var(--clr-cream-warm)
+  padding: 40px;
+  background: var(--clr-cream-warm);
+  justify-content: center;
 }
 
 .donation-img {
   flex: 1;
+  max-width: 50%;
   position: relative;
   overflow: hidden;
+  margin: 20px;
+  border-radius: var(--radius-md);
   animation: slideLeft linear both;
   animation-timeline: view();
   animation-range: entry 0% entry 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .donation-img img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
   transition: filter var(--transition);
+}
+
+.donation-form-panel {
+  flex: 1;
+  max-width: 50%;
+  padding: 40px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: center;
 }
 
 .donation-img:hover img{
@@ -2591,15 +2712,17 @@ mark.search-highlight {
 
 .donation-img-label {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
   padding: 24px 28px;
-  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  pointer-events: none;
 }
 
 .donation-img-label h2 {
-  color: var(--clr-white);
+  color: var(--clr-accent-lt);
   font-size: 1.5rem;
   margin-bottom: 6px;
 }
@@ -2619,7 +2742,6 @@ mark.search-highlight {
   flex-direction: column;
   gap: 14px;
   justify-content: center;
-  border-left: 1px solid rgba(0,0,0,0.06);
   animation: slideRight linear both;
   animation-timeline: view();
   animation-range: entry 0% entry 35%;
@@ -2628,7 +2750,6 @@ mark.search-highlight {
 .donation-form-panel input[type="text"] {
   width: 100%;
   padding: 11px 14px;
-  border: 1px solid rgba(0,0,0,0.15);
   border-radius: var(--radius-sm);
   font-family: var(--font-body);
   font-size: 0.9rem;
@@ -2665,7 +2786,9 @@ mark.search-highlight {
 }
 
 .donation-pay-btn {
-  width: 100%;
+  width: auto;
+  align-self: center;
+  padding: 0.75rem 2.5rem;
   background: transparent;
   color: var(--clr-dark);
   border: 1.5px solid var(--clr-dark);
@@ -2707,6 +2830,7 @@ mark.search-highlight {
   .donation-strip {
     flex-direction: column;
     max-height: none;
+    padding: 28px 20px;
   }
 
   .donation-img {
