@@ -117,20 +117,6 @@ p {
   margin-bottom: 1rem;
 }
 
-@media (max-width: 1024px) {
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.75rem; }
-  h3 { font-size: 1.5rem; }
-  p  { font-size: 0.95rem; }
-}
-
-@media (max-width: 768px) {
-  h1 { font-size: 1.75rem; }
-  h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.25rem; }
-  p  { font-size: 0.9rem; }
-}
-
 /* =================== typography — responsive =================== */
 
 @media (max-width: 1024px) {
@@ -261,7 +247,7 @@ body {
   transition: opacity var(--transition), visibility var(--transition), transform var(--transition), background-color var(--transition);
 }
 
-  .back-to-top button{
+.back-to-top button {
   width: 32px;
   height: 32px;
   flex-shrink: 0;
@@ -271,7 +257,7 @@ body {
   cursor: pointer;
   padding: 0.25rem;
   filter: brightness(0) invert(1);
-  }
+}
 
 .back-to-top.visible {
   opacity: 1;
@@ -293,7 +279,7 @@ body {
   font-weight: 500;
 }
 
-/* =================== accesibility =================== */
+/* =================== accessibility =================== */
 
 body.dark-mode {
   background-color: var(--clr-dark);
@@ -327,8 +313,8 @@ body.dyslexic-mode button {
 /* =================== dyslexic font url =================== */
 
 @font-face {
-	font-family: 'DyslexicLogicFont';
-	src: url('//2ttf.com/webfont/2Y6Dmnd0cyG/webfont.ttf') format('truetype');
+  font-family: 'DyslexicLogicFont';
+  src: url('//2ttf.com/webfont/2Y6Dmnd0cyG/webfont.ttf') format('truetype');
 }
 
 /* =================== header =================== */
@@ -407,7 +393,7 @@ html.translated-rtl .navigation-container {
   margin-right: 40px;
 }
 
-.nav-links li a.active { 
+.nav-links li a.active {
   border-bottom: 2px solid var(--clr-accent-lt);
   background-color: transparent;
 }
@@ -605,32 +591,32 @@ mark.search-highlight {
   }
 
   .nav-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  width: 230px;
-  background-color: var(--clr-dark);
-  border-radius: 0 0 var(--radius-md) var(--radius-md);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-6px);
-  pointer-events: none;
-  transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-}
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 230px;
+    background-color: var(--clr-dark);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  }
 
-.nav-links.active {
-  max-height: 320px;
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  pointer-events: auto;
-}
+  .nav-links.active {
+    max-height: 320px;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
 
   .nav-links li {
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
@@ -653,9 +639,9 @@ mark.search-highlight {
   }
 
   .nav-links li a.active {
-  border-bottom: none;
-  border-left: 3px solid var(--clr-accent-lt);
-  padding-left: calc(1.25rem - 3px);
+    border-bottom: none;
+    border-left: 3px solid var(--clr-accent-lt);
+    padding-left: calc(1.25rem - 3px);
   }
 
 }
@@ -669,10 +655,10 @@ mark.search-highlight {
     height: 70px;
   }
 
- .site-logo img {
+  .site-logo img {
     width: 140px;
     min-width: 120px;
- }
+  }
 
   .header-icons {
     gap: 0.5rem;
@@ -685,17 +671,12 @@ mark.search-highlight {
 
   .search-container:hover,
   .search-container:focus-within {
-    width: 90px;
+    width: 80px;
   }
 
   .settings-btn {
     width: 28px;
     height: 28px;
-  }
-
-  .search-container:hover,
-  .search-container:focus-within {
-    width: 80px;
   }
 
   .dropdown-content {
@@ -722,20 +703,24 @@ mark.search-highlight {
     height: auto;
     padding: 0 10px;
   }
+
   .navigation-container {
     height: 70px;
     grid-template-columns: auto auto;
     gap: 0.5rem;
   }
+
   .site-logo img {
     width: 120px;
   }
+
   .header-icons {
     margin-right: 0;
     gap: 0.5rem;
   }
+
   .nav-links {
-    top: 70px; /* anchor menu below shorter header */
+    top: 70px;
   }
 }
 
@@ -856,9 +841,7 @@ mark.search-highlight {
   .social-links {
     justify-content: center;
   }
-}
 
-@media (max-width: 992px) {
   .footer-copy {
     border-top: none;
     padding-top: 20px;
@@ -868,7 +851,6 @@ mark.search-highlight {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 }
-
 
 /* =================== home — hero =================== */
 
@@ -998,10 +980,10 @@ mark.search-highlight {
   display: flex;
   overflow: hidden;
   align-items: stretch;
-  margin: 20px 0px;
+  margin: 20px 0;
 }
 
-.info-row-reverse{
+.info-row-reverse {
   flex-direction: row-reverse;
 }
 
@@ -1031,7 +1013,7 @@ mark.search-highlight {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 40px 60px;
+  padding: 40px 50px;
 }
 
 .info-text h3 {
@@ -1141,7 +1123,6 @@ mark.search-highlight {
   transition: opacity 0.3s ease 0.3s, transform 0.3s ease 0.3s;
 }
 
-
 /* =================== home — responsive =================== */
 
 @media (max-width: 768px) {
@@ -1154,6 +1135,7 @@ mark.search-highlight {
   .hero-btn {
     width: 200px;
   }
+
   .info-row,
   .info-row-reverse {
     flex-direction: column;
@@ -1163,6 +1145,7 @@ mark.search-highlight {
     min-height: 250px;
     max-height: 250px;
   }
+
   .info-text {
     padding: 20px;
     text-align: center;
@@ -1206,61 +1189,61 @@ mark.search-highlight {
     text-align: left;
     color: var(--clr-white);
   }
+}
 
-  @media (orientation: landscape) {
+@media (max-width: 768px) and (orientation: landscape) {
   .hero {
-      height: auto;
-      min-height: 100svh;
-      padding: 120px 20px 60px;
-    }
+    height: auto;
+    min-height: 100svh;
+    padding: 120px 20px 60px;
+  }
 
-    .hero-content h1 {
-      font-size: 1.75rem;
-      margin-bottom: 8px;
-    }
+  .hero-content h1 {
+    font-size: 1.75rem;
+    margin-bottom: 8px;
+  }
 
-    .hero-content > p {
-      margin-bottom: 15px;
-    }
+  .hero-content > p {
+    margin-bottom: 15px;
+  }
 
-    .hero-buttons {
-      flex-direction: row;
-      gap: 15px;
-      padding-bottom: 20px;
-    }
+  .hero-buttons {
+    flex-direction: row;
+    gap: 15px;
+    padding-bottom: 20px;
+  }
 
-    .hero-btn {
-      width: auto;
-      padding: 10px 18px;
-    }
+  .hero-btn {
+    width: auto;
+    padding: 10px 18px;
   }
 }
 
 /* =================== reservations — hero =================== */
- 
+
 .reservations-hero {
   display: flex;
   min-height: 40vh;
   max-height: 60vh;
 }
- 
+
 /* LEFT image panel */
- 
+
 .reservations-hero-img {
   flex: 1;
   position: relative;
   overflow: hidden;
 }
- 
+
 .reservations-hero-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
- 
+
 /* RIGHT text panel */
- 
+
 .reservations-hero-text {
   flex: 1;
   background-color: var(--clr-cream-warm);
@@ -1272,12 +1255,12 @@ mark.search-highlight {
   padding: 60px 50px;
   gap: 20px;
 }
- 
+
 .reservations-hero-text h1 {
   font-size: 3rem;
   color: var(--clr-accent);
 }
- 
+
 .reservations-hero-text p {
   font-size: 1.1rem;
   color: var(--clr-dark-alt);
@@ -1303,11 +1286,6 @@ mark.search-highlight {
   opacity: 0.6;
   margin-bottom: 30px;
   margin-top: -30px;
-  position: relative;
-  z-index: 1;
-}
-
-.section-heading {
   position: relative;
   z-index: 1;
 }
@@ -1472,7 +1450,7 @@ mark.search-highlight {
 
 .reservation-form-wrapper {
   flex: 1;
-  padding: 50px 50px;
+  padding: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1532,7 +1510,7 @@ mark.search-highlight {
   font-size: 0.95rem;
   color: var(--clr-dark-alt);
   background-color: var(--clr-cream);
-  box-sizing: border-box; 
+  box-sizing: border-box;
   transition: border-color var(--transition);
 }
 
@@ -1563,8 +1541,6 @@ mark.search-highlight {
   gap: 40px;
 }
 
-/* top text block */
-
 .findus-header {
   text-align: center;
   display: flex;
@@ -1581,8 +1557,6 @@ mark.search-highlight {
   color: var(--clr-dark-alt);
   margin: 0;
 }
-
-/* map embed */
 
 .findus-map {
   width: 100%;
@@ -1629,8 +1603,6 @@ mark.search-highlight {
   opacity: 0.85;
 }
 
-/* form */
-
 .contact-form {
   width: 100%;
   max-width: 700px;
@@ -1667,14 +1639,11 @@ mark.search-highlight {
   resize: vertical;
 }
 
-/* submit */
-
 .contact-submit {
   align-self: center;
   background-color: transparent;
   color: var(--clr-dark);
   border: 1px solid var(--clr-dark);
-  padding: 0.85rem 2.5rem;
   padding: 0.65rem 2rem;
   border-radius: var(--radius-sm);
   font-weight: 500;
@@ -1756,17 +1725,20 @@ mark.search-highlight {
     min-height: auto;
     max-height: none;
   }
+
   .reservations-hero-img {
     flex: none;
     min-height: 200px;
     max-height: 200px;
     width: 100%;
   }
+
   .reservations-hero-text {
     flex: none;
     padding: 35px 20px;
     width: 100%;
   }
+
   .reservations-hero-text h1 {
     font-size: 2rem;
   }
@@ -1788,30 +1760,7 @@ mark.search-highlight {
     width: auto;
     min-width: 140px;
   }
-}
 
-@media (max-width: 480px) {
-  .reservations-hero-text h1 {
-    font-size: 1.6rem;
-  }
-
-  .reservation-submit {
-    width: 100%;
-    align-self: stretch;
-  }
-
-  .contact-submit {
-    width: 100%;
-  }
-}
-
-@media (max-width: 1024px) {
-  .timeline-slider-wrapper {
-    gap: 10px;
-  }
-}
-
-@media (max-width: 600px) {
   .timeline-section {
     padding: 50px 10px;
   }
@@ -1846,6 +1795,19 @@ mark.search-highlight {
 }
 
 @media (max-width: 480px) {
+  .reservations-hero-text h1 {
+    font-size: 1.6rem;
+  }
+
+  .reservation-submit {
+    width: 100%;
+    align-self: stretch;
+  }
+
+  .contact-submit {
+    width: 100%;
+  }
+
   .timeline-section {
     padding: 40px 8px;
   }
@@ -1905,6 +1867,12 @@ mark.search-highlight {
   }
 }
 
+@media (max-width: 1024px) {
+  .timeline-slider-wrapper {
+    gap: 10px;
+  }
+}
+
 @media (max-width: 768px) and (orientation: landscape) {
   .timeline-section {
     padding: 40px 12px;
@@ -1947,6 +1915,7 @@ mark.search-highlight {
 }
 
 /* =================== menu — chef recommendation =================== */
+
 .chef-section {
   padding: 60px 30px;
   background-color: var(--clr-cream-warm);
@@ -1967,7 +1936,7 @@ mark.search-highlight {
   margin: 0;
 }
 
-.chef-header p:not(.tagline){
+.chef-header p:not(.tagline) {
   color: var(--clr-dark-alt);
   margin: 0;
 }
@@ -2014,8 +1983,6 @@ mark.search-highlight {
   to   { transform: translateX(0); }
 }
 
-/* individual cards */
-
 .dish-card {
   position: relative;
   width: 380px;
@@ -2038,8 +2005,6 @@ mark.search-highlight {
   transform: scale(1.05);
 }
 
-/* text overlay */
-
 .dish-overlay {
   position: absolute;
   inset: 0;
@@ -2059,18 +2024,16 @@ mark.search-highlight {
 
 .dish-overlay h3 {
   color: var(--clr-accent-lt);
-  font-size: 1.2rem;
-  margin: 0 0 6px;
   font-size: clamp(0.9rem, 2vw, 1.2rem);
+  margin: 0 0 6px;
 }
 
 .dish-overlay p {
   color: var(--clr-white);
-  font-size: 0.88rem;
+  font-size: clamp(0.7rem, 1.8vw, 0.88rem);
   margin: 0;
   line-height: 1.4;
   opacity: 0.9;
-  font-size: clamp(0.7rem, 1.8vw, 0.88rem);
 }
 
 /* =================== menu — menu grid =================== */
@@ -2084,8 +2047,6 @@ mark.search-highlight {
   gap: 50px;
 }
 
-/* header block */
-
 .menu-header {
   text-align: center;
   display: flex;
@@ -2097,12 +2058,10 @@ mark.search-highlight {
   margin: 0;
 }
 
-.menu-header p:not(.tagline){
+.menu-header p:not(.tagline) {
   color: var(--clr-dark-alt);
   margin: 0;
 }
-
-/* 2×2 grid */
 
 .menu-grid {
   display: grid;
@@ -2111,8 +2070,6 @@ mark.search-highlight {
   width: 100%;
   align-items: stretch;
 }
-
-/* individual section card */
 
 .menu-card {
   background-color: var(--clr-cream-warm);
@@ -2123,8 +2080,6 @@ mark.search-highlight {
   flex-direction: column;
   gap: 4px;
 }
-
-/* card heading */
 
 .menu-card-title {
   font-family: var(--font-heading);
@@ -2137,22 +2092,18 @@ mark.search-highlight {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-/* divider between items */
-
 .menu-divider {
   height: 1px;
   background-color: rgba(0, 0, 0, 0.07);
   margin: 4px 0;
 }
 
-/* individual row */
-
 .menu-item {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 12px;
-  padding: 10px 10px;
+  padding: 10px;
   border-radius: var(--radius-sm);
   border: 1px solid transparent;
   cursor: default;
@@ -2165,8 +2116,6 @@ mark.search-highlight {
   border-color: rgba(230, 147, 90, 0.2);
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.09);
 }
-
-/* item text block */
 
 .menu-item-info {
   display: flex;
@@ -2195,8 +2144,6 @@ mark.search-highlight {
   line-height: 1.45;
 }
 
-/* price */
-
 .menu-item-price {
   font-family: var(--font-body);
   font-size: 0.95rem;
@@ -2206,8 +2153,6 @@ mark.search-highlight {
   padding-top: 2px;
 }
 
-/* spice / status badges */
-
 .menu-badge {
   font-size: 0.7rem;
   font-weight: 500;
@@ -2216,25 +2161,10 @@ mark.search-highlight {
   white-space: nowrap;
 }
 
-.menu-badge--spicy {
-  background-color: #faece7a7;
-  color: #993C1D;
-}
-
-.menu-badge--medium {
-  background-color: #fff3dce0;
-  color: #8A5200;
-}
-
-.menu-badge--mild {
-  background-color: #eaf5e3b5;
-  color: #2E6B17;
-}
-
-.menu-badge--new {
-  background-color: rgba(230, 146, 90, 0.274);
-  color: var(--clr-accent);
-}
+.menu-badge--spicy  { background-color: #faece7a7; color: #993C1D; }
+.menu-badge--medium { background-color: #fff3dce0; color: #8A5200; }
+.menu-badge--mild   { background-color: #eaf5e3b5; color: #2E6B17; }
+.menu-badge--new    { background-color: rgba(230, 146, 90, 0.274); color: var(--clr-accent); }
 
 /* =================== menu — cta strip =================== */
 
@@ -2264,7 +2194,7 @@ mark.search-highlight {
   filter: brightness(50%);
 }
 
-.menu-cta-text  {
+.menu-cta-text {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -2326,6 +2256,11 @@ mark.search-highlight {
   .menu-cta-text {
     padding: 40px 25px;
   }
+
+  .dish-card {
+    width: 200px;
+    height: 150px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -2374,20 +2309,13 @@ mark.search-highlight {
   }
 }
 
-@media (max-width: 768px) {
-  .dish-card {
-    width: 200px;
-    height: 150px;
-  }
-}
-
 /* =================== experience — carousel hero =================== */
 
 .experience-hero {
   padding: 120px 20px 40px;
 }
 
-.carousel-wrapper{
+.carousel-wrapper {
   display: flex;
   align-items: center;
   gap: 15px;
@@ -2395,16 +2323,12 @@ mark.search-highlight {
   margin: 0 auto;
 }
 
-/* scrollable track */
-
 .carousel-section {
   position: relative;
   width: 100%;
   height: 70vh;
   overflow: hidden;
 }
-
-/* individual slide */
 
 .carousel-hero-card {
   position: absolute;
@@ -2423,8 +2347,6 @@ mark.search-highlight {
   display: block;
 }
 
-/* dark overlay + centred text */
-
 .carousel-hero-card .hero-content {
   position: absolute;
   inset: 0;
@@ -2436,6 +2358,7 @@ mark.search-highlight {
   text-align: center;
   padding: 20px;
   color: var(--clr-white);
+  pointer-events: none;
 }
 
 .carousel-hero-card .hero-content h1 {
@@ -2451,8 +2374,6 @@ mark.search-highlight {
   opacity: 0.9;
   animation: none;
 }
-
-/* arrows */
 
 .carousel-arrow {
   background: var(--clr-dark);
@@ -2472,8 +2393,6 @@ mark.search-highlight {
   background-color: var(--clr-accent);
   transform: scale(1.1);
 }
-
-/* dots */
 
 .carousel-dots {
   display: flex;
@@ -2495,11 +2414,6 @@ mark.search-highlight {
 .carousel-dot.active {
   background-color: var(--clr-accent);
 }
-
-.carousel-hero-card .hero-content {
-  pointer-events: none;
-}
-
 
 /* =================== experience — kitchen section =================== */
 
@@ -2530,7 +2444,7 @@ mark.search-highlight {
   position: relative;
   width: 33.333%;
   height: 400px;
-  overflow: hidden; 
+  overflow: hidden;
   cursor: zoom-in;
 }
 
@@ -2756,14 +2670,25 @@ mark.search-highlight {
 
   .charity-section {
     flex-direction: column;
+    max-height: none;
+    min-height: unset;
+    padding-bottom: 40px;
   }
 
   .charity-img {
-    min-height: 250px;
+    min-height: 220px;
+    max-height: 300px;
+    width: 100%;
+  }
+
+  .charity-img img {
+    height: 100%;
+    width: 100%;
   }
 
   .charity-text {
-    padding: 40px 25px;
+    padding: 35px 20px 40px;
+    max-height: none;
   }
 }
 
@@ -2802,27 +2727,11 @@ mark.search-highlight {
   .charity-text h3 {
     font-size: 1.2rem;
   }
-}
 
-@media (max-width: 768px) {
-
-  .charity-img {
-    min-height: 220px;
-    max-height: 300px;    
-    width: 100%;
-  }
-
-  .charity-img img {
-    height: 100%;
-    width: 100%;
-  }
-
-  .charity-text {
-    padding: 35px 20px 40px;
-    max-height: none;    
+  .experience-hero {
+    padding-top: 110px;
   }
 }
-
 
 @media (max-width: 480px) {
   .carousel-hero-card .hero-content h1 {
@@ -2838,15 +2747,6 @@ mark.search-highlight {
     text-align: center;
   }
 
-}
-
-@media (max-width: 600px) {
-  .experience-hero {
-    padding-top: 110px;
-  }
-}
-
-@media (max-width: 480px) {
   .experience-hero {
     padding-top: 100px;
   }
@@ -3001,8 +2901,6 @@ mark.search-highlight {
 }
 
 .donation-img img {
-  position: static;
-  transform: none;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -3013,16 +2911,6 @@ mark.search-highlight {
 .donation-img:hover img {
   filter: brightness(50%);
   transform: scale(1.03);
-}
-
-.donation-form-panel {
-  flex: 1;
-  max-width: 50%;
-  padding: 40px 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  justify-content: center;
 }
 
 .donation-img-label {
@@ -3147,19 +3035,16 @@ mark.search-highlight {
 
   .donation-img {
     min-height: 240px;
-  }
-
-  .donation-form-panel {
-    padding: 28px 20px;
-  }
-
-  .donation-img {
     position: relative;
   }
 
   .donation-img-label {
     position: absolute;
     inset: 0;
+  }
+
+  .donation-form-panel {
+    padding: 28px 20px;
   }
 }
 
