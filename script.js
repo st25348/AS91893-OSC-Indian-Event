@@ -1,4 +1,4 @@
-// Google translator feature
+// Google translator feature 
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
     pageLanguage: 'en',
@@ -207,8 +207,7 @@ if (slider && prevBtn && nextBtn) {
   function goTo(index) {
     const total = cards.length;
     current = (index + total) % total;
-    const cardWidth = cards[0].offsetWidth + 20;
-    slider.scrollLeft = cardWidth * current;
+    slider.scrollTo({ left: slider.offsetWidth * current, behavior: 'smooth' });
     document.querySelectorAll('.timeline-dot').forEach((d, i) => {
       d.classList.toggle('active', i === current);
     });
@@ -216,6 +215,10 @@ if (slider && prevBtn && nextBtn) {
 
   prevBtn.addEventListener('click', () => goTo(current - 1));
   nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  window.addEventListener('resize', () => {
+    slider.scrollTo({ left: slider.offsetWidth * current, behavior: 'instant' });
+  });
 }
 
 // experience carousel 
@@ -328,7 +331,7 @@ document.querySelectorAll('.nav-links li a').forEach(link => {
   if (linkPage === page) link.classList.add('active');
 });
 
-// form submition message
+// form submission message
 const forms = document.querySelectorAll('.reservation-form, .contact-form');
 forms.forEach(form => {
   form.addEventListener('submit', (e) => {
